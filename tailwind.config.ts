@@ -13,6 +13,12 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      backgroundPosition: {
+        'center-center': '50% 50%',
+      },
+      // content: {
+      //   'link': 'url("/next.svg")',
+      // },
     },
   },
   plugins: [],
