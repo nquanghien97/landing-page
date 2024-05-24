@@ -1,12 +1,13 @@
 "use client"
 
-import React, { useState, useRef, ReactNode } from 'react';
+import React, { useState, useRef, ReactNode, useEffect } from 'react';
 import { PanInfo, motion } from 'framer-motion';
 import NextIcon from '@/assets/icons/NextIcon';
 import PreIcon from '@/assets/icons/PreIcon';
 
 interface SliderProps {
   children: ReactNode
+  repeat?: number
 }
 
 function clamp(number: number, lower: number, upper: number) {
@@ -22,7 +23,7 @@ function range(end: number) {
 }
 
 const Slider = (props: SliderProps) => {
-  const { children } = props; 
+  const { children, repeat } = props; 
   const constraintsRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
@@ -42,6 +43,22 @@ const Slider = (props: SliderProps) => {
       ))}
     </div>
   );
+
+  useEffect(() => {
+    if(repeat) {
+
+      const interval = setInterval(() => {
+        if (active < React.Children.count(children) - 1) {
+          setActive((pre) => pre + 1);
+        } else {
+          setActive(0);
+        }
+      }, repeat)
+      return () => {
+        clearInterval(interval)
+      }
+    }
+  }, [active, children, repeat])
 
   const NextSlider = () => {
     const onClickNextBtn = () => {
