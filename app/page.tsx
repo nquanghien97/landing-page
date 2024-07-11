@@ -1,7 +1,4 @@
-'use client';
-
 import Image from "next/image";
-import { FormEvent } from 'react';
 import Slider from "./_component/Slider";
 import BaseButton from "./_component/common/BaseButton";
 import AnimatedText from "./_component/common/AnimatedText";

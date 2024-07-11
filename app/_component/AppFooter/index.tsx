@@ -1,16 +1,7 @@
-import React, { FormEvent } from 'react'
+import React from 'react'
+import FormFooter from './FormFooter'
 
 function AppFooter() {
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formElement = e.target as HTMLFormElement;
-    const firstInput = formElement.elements[0];
-
-    if (firstInput instanceof HTMLInputElement) {
-      console.log(firstInput.value);
-    }
-  }
 
   return (
     <footer>
@@ -34,10 +25,7 @@ function AppFooter() {
             </ul>
             <div className="py-1">
               <h4 className="mb-2 font-bold uppercase">Nhận thông tin từ chúng tôi</h4>
-              <form className="flex" onSubmit={handleSubmit}>
-                <input className="w-[60%] p-2 text-black" />
-                <button type="submit" className="w-[40%] bg-black">GỬI ĐI</button>
-              </form>
+              <FormFooter />
             </div>
           </div>
           <div className="flex md:basis-1/4 flex-col md:max-w-[25%] max-md:my-2 px-4">
