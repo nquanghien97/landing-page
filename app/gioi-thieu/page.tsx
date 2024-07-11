@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Slider from '../_component/Slider'
-import BaseButton from '../_component/common/BaseButton'
 import AppFooter from '../_component/AppFooter'
+import { Metadata } from 'next'
 
 const listImage = [
   {
@@ -13,6 +13,18 @@ const listImage = [
     title: 'THIẾT KẾ NỘI THẤT - THI CÔNG NỘI THẤT'
   },
 ]
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.google.com/'),
+  title: 'Giới thiệu - MAM DESIGN - Thiết kế và thi công nội thất',
+  openGraph: {
+    locale: 'vi_VN',
+    title: 'Giới thiệu - MAM DESIGN - Thiết kế và thi công nội thất',
+    url: 'https://www.google.com',
+    siteName: 'Giới thiệu - MAM DESIGN - Thiết kế và thi công nội thất',
+    type: 'article'
+  }
+}
 
 function GioiThieu() {
   return (
