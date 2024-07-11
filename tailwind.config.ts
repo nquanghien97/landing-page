@@ -1,5 +1,13 @@
 import type { Config } from 'tailwindcss'
 
+type AddComponentsType = (
+  components: Record<string, Record<string, any>>,
+  options?: {
+    respectPrefix?: boolean;
+    respectImportant?: boolean;
+  }
+) => void
+
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -21,6 +29,33 @@ const config: Config = {
       // },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addComponents }: { addComponents: AddComponentsType}) {
+      addComponents({
+        '.numbered-section-white': {
+          '@apply relative leading-none text-[150px] text-[#f1f1f1] opacity-70 float-right': {},
+          '&::before': {
+            content: '""',
+            '@apply absolute w-[120px] border-t bottom-5 left-[-130px]': {},
+          },
+          '&::after': {
+            content: '""',
+            '@apply absolute w-3 h-3 left-[-10px] bottom-[14px] bg-[#fff] rounded-full': {},
+          },
+        },
+        '.numbered-section-black': {
+          '@apply relative leading-none text-[150px] text-black opacity-70 float-right': {},
+          '&::before': {
+            content: '""',
+            '@apply absolute w-[120px] border-t border-black bottom-5 left-[-130px]': {},
+          },
+          '&::after': {
+            content: '""',
+            '@apply absolute w-3 h-3 left-[-10px] bottom-[14px] bg-black rounded-full': {},
+          },
+        },
+      })
+    },
+  ],
 }
 export default config

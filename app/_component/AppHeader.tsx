@@ -17,7 +17,7 @@ function AppHeader() {
   useEffect(() => {
     const handleScroll = (e: any) => {
       const scrollTop = window.scrollY;
-      setIsSticky(scrollTop >= 10);
+      setIsSticky(scrollTop >= 0);
   };
 
     window.addEventListener('scroll', handleScroll);

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Slider from '../_component/Slider'
 import BaseButton from '../_component/common/BaseButton'
+import AppFooter from '../_component/AppFooter'
 
 const listImage = [
   {
@@ -36,7 +37,7 @@ function GioiThieu() {
         </Slider>
       </section>
       <section className="py-7">
-        <div className="max-w-6xl m-auto">
+        <div className="max-w-6xl m-auto px-4">
           <h2 className="max-md:m-3 font-semibold text-4xl md:mb-3">Chúng tôi là ai</h2>
           <div className="flex max-md:flex-col">
             <div className="md:max-w-[50%] max-md:mx-3 max-md:mb-3 md:pr-8">
@@ -63,17 +64,122 @@ function GioiThieu() {
       </section>
       <section className="py-7 relative">
         <div
-          className="absolute inset-0 z-0 bg-[url(https://mamvietnam.vn/wp-content/uploads/2022/07/289378528_179025127900602_116522636842752539_n.jpg)] bg-cover bg-no-repeat bg-center-center h-[400px] w-full"
+          className="absolute inset-0 z-0 bg-[url(https://mamvietnam.vn/wp-content/uploads/2022/07/289378528_179025127900602_116522636842752539_n.jpg)] bg-cover bg-no-repeat bg-center-center w-full"
         />
         <div className='relative max-w-6xl m-auto'>
-          <div>
-            <div>
-              <h2 className="uppercase text-white text-3xl font-semibold">Tầm nhìn và sứ mệnh</h2>
+          <div className="flex max-md:flex-col">
+            <div className="basis-2/5 md:max-w-[40%] px-4 pb-5">
+              <div>
+                <h2 className="uppercase text-white text-3xl font-semibold">Tầm nhìn và sứ mệnh</h2>
+              </div>
+              <div className='numbered-section-white'>02</div>
+            </div>
+            <div className='basic-3/5 md:max-w-[60%] px-4 pb-5 text-white leading-7'>
+              <div>
+                <p>Ngay từ những ngày đầu thành lập, MAM Việt Nam đã mang trên mình sứ mệnh kiến tạo nên những giá trị sống bền vững cho từng gia đình từ không gian nội thất khác biệt, sang trọng và hiện đại. </p>
+                <p>
+                  <span>Để hoàn thành được sứ mệnh cao cả ấy và để làm hài lòng mọi khách hàng, đội ngũ MAM Việt Nam luôn nỗ lực từng ngày, đặt trọn niềm đam mê vào từng dự án.</span>
+                  <span>Hiện tại chúng tôi đã và đang hợp tác thực hiện hàng nghìn dự án lớn nhỏ về thiết kế và thi công nội thất căn hộ, chung cư, biệt thự… MAM luôn nỗ lực hết sức mình trong việc biến những trăn trở của khách hàng thành sự hài lòng và tin cậy. Chúng tôi hy vọng bằng sự nhiệt huyết, nhạy bén với xu hướng mới, trong tương lai MAM sẽ mang đến bạn nhiều hơn những mẫu thiết kế đẳng cấp, trở thành đơn vị thiết kế và thi công nội thất hàng đầu tại Việt Nam.</span>
+                </p>
+              </div>
             </div>
           </div>
-          <div></div>
         </div>
       </section>
+      <section className="py-7 relative">
+        <div className="flex max-md:flex-col max-w-6xl m-auto">
+          <div className="md:max-w-[60%] px-4 pb-5">
+            <div className="flex flex-col">
+              <p className="mb-5">
+                <span>Là đơn vị thiết kế và thi công nội thất nhận được sự tin tưởng từ khách hàng, mỗi nhân sự tại MAM Việt Nam đã, đang và sẽ hàng ngày đầu tư tâm huyết, thời gian, công sức và chất xám vào từng sản phẩm, từ những chi tiết nhỏ nhất để mang đến cho khách hàng chất lượng dịch vụ tốt nhất.</span>
+              </p>
+              <p className="mb-5">
+                <span>MAM Việt Nam cam kết:</span>
+              </p>
+              <ul className="list-disc">
+                <li className="ml-5 mb-3">Đảm bảo tiến độ dự án đạt chuẩn 100% theo hợp đồng</li>
+                <li className="ml-5 mb-3">Chế độ bảo hành, bảo trì uy tín, đáng tin cậy</li>
+                <li className="ml-5 mb-3">Đảm bảo tuyệt đối về chất lượng và nguồn gốc xuất xứ của vật liệu, cam kết hoàn trả 100% chi phí nếu như có bất cứ sai phạm nào.</li>
+                <li className="ml-5 mb-3">Luôn đặt niềm tin, sự kỳ vọng và sự hài lòng của khách hàng lên hàng đầu. </li>
+              </ul>
+            </div>
+          </div>
+          <div className="basis-2/5 md:max-w-[40%] px-4 pb-5">
+            <div className="">
+                <div>
+                  <h2 className="uppercase text-black text-3xl font-semibold">Chất lượng dịch vụ</h2>
+                </div>
+                <div className='numbered-section-black'>03</div>
+              </div>
+            </div>
+        </div>
+      </section>
+      <section className="py-7 relative">
+        <div
+          className="absolute inset-0 z-0 bg-[url(https://mamvietnam.vn/wp-content/uploads/2022/07/Phoi-canh-NM-cong-ty-TNHH-SD-Global-600x600-1.jpg)] bg-cover bg-no-repeat bg-center-center w-full"
+        >
+          <div className="bg-[#00000080] absolute inset-0" />
+        </div>
+        <div className='relative max-w-6xl m-auto'>
+          <div className="flex max-md:flex-col">
+            <div className="basis-2/5 md:max-w-[40%] px-4 pb-5">
+              <div>
+                <h2 className="uppercase text-white text-3xl font-semibold">Nhà máy và công nghệ</h2>
+              </div>
+              <div className='numbered-section-white'>04</div>
+            </div>
+            <div className='basic-3/5 md:max-w-[60%] px-4 pb-5 text-white leading-7'>
+              <div>
+                <p className="mb-5">
+                  <span>Việc áp dụng và chuyển giao công nghệ sản xuất tiên tiến trên thế giới được MAM Việt Nam ưu tiên hàng đầu để đảm bảo một cách tối đa vấn đề công năng và thẩm mỹ cho từng sản phẩm.</span>
+                </p>
+                <p className="mb-5">
+                  <span>Để hoàn thành được sứ mệnh cao cả ấy và để làm hài lòng mọi khách hàng, đội ngũ MAM Việt Nam luôn nỗ lực từng ngày, đặt trọn niềm đam mê vào từng dự án.</span>
+                </p>
+                <p>
+                  <span>Sở hữu 2 nhà máy sản xuất với quy mô lớn được trang bị đầy đủ các loại máy móc, trang thiết bị hiện đại theo quy chuẩn quốc tế, đội ngũ công nhân của MAM Việt Nam luôn đảm bảo mọi hoạt động sản xuất diễn ra đúng quy trình, liền mạch và an toàn. Từ đó mang đến cho khách hàng những sản phẩm chất lượng cao nhất, hoàn hảo và phù hợp với không gian.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="py-7 relative">
+        <div className="flex max-md:flex-col max-w-6xl m-auto">
+          <div className="md:max-w-[60%] px-4 pb-5">
+            <div className="mb-4">
+              <Image src="https://mamvietnam.vn/wp-content/uploads/2022/07/289486218_179025217900593_2576056387368917256_n-1536x1152.jpg" width={1020} height={765} alt="image" />
+            </div>
+            <div>
+              <Image src="https://mamvietnam.vn/wp-content/uploads/2022/07/289730854_179025447900570_4484181443201568015_n-1536x768.jpg" width={1020} height={510} alt="image" />
+            </div>
+          </div>
+          <div className="basis-2/5 md:max-w-[40%] px-4 pb-5">
+            <div className="">
+              <div>
+                <h2 className="uppercase text-black text-3xl font-semibold">Nguồn nhân lực</h2>
+                <div className='numbered-section-black'>05</div>
+              </div>
+              <div className="after:content-[''] after:table after:clear-both"></div>
+              <div>
+                <p className="mb-5">
+                  <span>MAM Việt Nam sở hữu một đội ngũ nhân lực có trình độ chuyên môn cao, nhiệt tình, trách nhiệm, với tác phong làm việc chuyên nghiệp, có khả năng tư vấn cho khách hàng một cách tận tình nhất.</span>
+                </p>
+                <p className="mb-5">
+                  <span>Mỗi KTS tại MAM đều là cử nhân ngành kiến trúc tại các trường đại học uy tín và danh giá bậc nhất, có nhiều năm kinh nghiệm trong lĩnh vực thiết kế nội thất, am hiểu những quy tắc về phối hợp màu sắc và kiến thức phong thủy. Tài năng và sự sáng tạo được các KTS thể hiện trong từng ý tưởng thiết kế, cho ra đời những “tác phẩm nghệ thuật” hoàn mỹ nhất, tối ưu chi phí – không gian và thời gian. </span>
+                </p>
+                <p className="mb-5">
+                  <span>Các nghệ nhân thi công của MAM đều có tay nghề thi công cao và am hiểu một cách chuyên sâu về nguyên liệu chế tác cũng như vấn đề thi công nội thất, đảm bảo thi công chính xác tuyệt đối, mọi công trình sẽ luôn đạt được độ hoàn thiện cao và bền đẹp với thời gian.</span>
+                </p>
+                <p className="mb-5">
+                  <span>Là đơn vị tiên phong trên thị trường nội thất Việt, MAM Việt Nam đã nhận được rất nhiều sự tin tưởng và lựa chọn của khách hàng cũng như sự đánh giá cao về chất lượng của các chuyên gia trong nghề, tự tin trở thành địa chỉ tin cậy cho các không gian sống tối thượng của quý vị.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <AppFooter />
     </>
   )
 }
