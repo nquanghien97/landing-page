@@ -1,12 +1,14 @@
+import { removeVietnameseTones } from "@/utils/removeVietnameseTones";
 import prisma from "../../../lib/db";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const { title, content, imageUrl } = await req.json();
+  const slug = removeVietnameseTones(title)
   try {
     const newHanbook = await prisma.handbook.create({
       data: {
-        title, content, imageUrl
+        title, content, imageUrl, slug
       }
     })
     return NextResponse.json({ newHanbook }, { status: 200 })

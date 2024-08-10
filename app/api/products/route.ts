@@ -1,12 +1,14 @@
 import prisma from "@/lib/db";
+import { removeVietnameseTones } from "@/utils/removeVietnameseTones";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const { name, images, price, description, details } = await req.json();
+  const slug = removeVietnameseTones(name)
   try {
     const newProduct = await prisma.product.create({
       data: {
-        name, price, description, details
+        name, price, description, details, slug
       }
     })
     const dataImage: {imageUrl: string, productId: number}[] = images.map((image: string) => ({

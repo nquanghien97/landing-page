@@ -2,15 +2,15 @@
 import prisma from "../../../../lib/db"
 import { NextResponse } from "next/server";
 
-export async function PUT(req: Request, { params }: { params: { id: number } }) {
-  const { id } = params;
+export async function PUT(req: Request, { params }: { params: { param: number } }) {
+  const { param } = params;
   const { name, images, price, description, details } = await req.json();
 
   try {
-    if (!id) {
+    if (!param) {
       return NextResponse.json(
         {
-          message: 'Product ID is required',
+          message: 'Product param is required',
         },
         { status: 400 }
       );
@@ -18,7 +18,7 @@ export async function PUT(req: Request, { params }: { params: { id: number } }) 
 
     const updatedProduct = await prisma.$transaction(async (tx) => {
       const product = await tx.product.update({
-        where: { id: +id },
+        where: { id: +param },
         data: {
           name,
           price,
@@ -28,7 +28,7 @@ export async function PUT(req: Request, { params }: { params: { id: number } }) 
       });
 
       await tx.productImage.deleteMany({
-        where: { productId: +id },
+        where: { productId: +param },
       });
 
       if (images && images.length > 0) {
@@ -36,7 +36,7 @@ export async function PUT(req: Request, { params }: { params: { id: number } }) 
           images.map((image: string) =>
             tx.productImage.create({
               data: {
-                productId: +id,
+                productId: +param,
                 imageUrl: image,
               },
             })
@@ -60,23 +60,40 @@ export async function PUT(req: Request, { params }: { params: { id: number } }) 
   }
 }
 
-export async function GET(req: Request, { params }: { params: { id: number } }) {
-  const { id } = params
+export async function GET(req: Request, { params }: { params: { param: number | string } }) {
+  const { param } = params
   try {
-    const products = await prisma.product.findUnique({
-      include: {
-        images: true
-      },
-      where: {
-        id: +id
-      }
-    })
-    return NextResponse.json(
-    {
-      data: products,
-    },
-    { status: 200 }
-  )
+    if (!isNaN(Number(param))) {
+      const products = await prisma.product.findUnique({
+        include: {
+          images: true
+        },
+        where: {
+          id: +param
+        }
+      })
+      return NextResponse.json(
+        {
+          data: products,
+        },
+        { status: 200 }
+      )
+    } else {
+      const products = await prisma.product.findUnique({
+        include: {
+          images: true
+        },
+        where: {
+          slug: param.toString()
+        }
+      })
+      return NextResponse.json(
+        {
+          data: products,
+        },
+        { status: 200 }
+      )
+    }
   } catch (err) {
     if (err instanceof Error) {
       return NextResponse.json({ message: err.message }, { status: 500 });

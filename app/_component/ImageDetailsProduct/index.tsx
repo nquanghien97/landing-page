@@ -5,7 +5,8 @@ interface ImageDetailsProductProps {
   data: {
     id: number;
     imageUrl: string;
-    title: string;
+    title?: string;
+    productId?: number;
   }[]
 }
 
@@ -30,7 +31,7 @@ function ImageDetailsProduct(props: ImageDetailsProductProps) {
     <Slider {...settings}>
       {data.map(image => (
         <div key={image.id} className="!flex justify-center">
-          <Image src={image.imageUrl} alt={image.title} width={680} height={200} />
+          <Image src={image.imageUrl} alt={image.title || ''} width={680} height={200} />
         </div>
       ))}
     </Slider>

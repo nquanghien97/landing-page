@@ -19,6 +19,7 @@ model Feedback {
   createdAt DateTime @default(now())
   imageUrl  String   @db.LongText
   content   String   @db.LongText
+  slug      String   @unique
 }
 
 model Tags {
@@ -35,6 +36,7 @@ model Product {
   description String         @db.LongText
   details     String         @db.LongText
   tags        Tags[]
+  slug        String         @unique
 }
 
 model Handbook {
@@ -43,6 +45,7 @@ model Handbook {
   createdAt DateTime @default(now())
   imageUrl  String   @db.LongText
   content   String   @db.LongText
+  slug      String   @unique
 }
 
 model ProductImage {

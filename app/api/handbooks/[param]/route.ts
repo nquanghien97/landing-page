@@ -2,11 +2,11 @@
 import prisma from "../../../../lib/db"
 import { NextResponse } from "next/server";
 
-export async function PUT(req: Request, { params }: { params: { id: number } }) {
-  const { id } = params;
+export async function PUT(req: Request, { params }: { params: { param: number } }) {
+  const { param } = params;
   const { title, content, imageUrl } = await req.json();
   try {
-    if (!id) {
+    if (!param) {
       return NextResponse.json(
         {
           message: 'Handbook ID is required',
@@ -17,7 +17,7 @@ export async function PUT(req: Request, { params }: { params: { id: number } }) 
 
     const updatedHandbook = await prisma.$transaction(async (tx) => {
       const handbook = await tx.handbook.update({
-        where: { id: +id },
+        where: { id: +param },
         data: {
           title,
           content,
@@ -41,20 +41,35 @@ export async function PUT(req: Request, { params }: { params: { id: number } }) 
   }
 }
 
-export async function GET(req: Request, { params }: { params: { id: number } }) {
-  const { id } = params
+export async function GET(req: Request, { params }: { params: { param: number | string } }) {
+  const { param } = params
   try {
-    const handbook = await prisma.handbook.findUnique({
-      where: {
-        id: +id
-      }
-    })
-    return NextResponse.json(
-    {
-      data: handbook,
-    },
-    { status: 200 }
-  )
+    if (!isNaN(Number(param))) {
+      const handbook = await prisma.handbook.findUnique({
+        where: {
+          id: +param
+        }
+      })
+      return NextResponse.json(
+      {
+        data: handbook,
+      },
+      { status: 200 }
+    )
+    } else {
+      const handbook = await prisma.handbook.findUnique({
+        where: {
+          slug: param.toString()
+        }
+      })
+      return NextResponse.json(
+      {
+        data: handbook,
+      },
+      { status: 200 }
+    )
+    }
+    
   } catch (err) {
     if (err instanceof Error) {
       return NextResponse.json({ message: err.message }, { status: 500 });
@@ -64,12 +79,12 @@ export async function GET(req: Request, { params }: { params: { id: number } }) 
   }
 }
 
-export async function DELETE(req: Request, { params }: { params: { id: number } }) {
-  const { id } = params
+export async function DELETE(req: Request, { params }: { params: { param: number } }) {
+  const { param } = params
   try {
     await prisma.handbook.delete({
       where: {
-        id: +id
+        id: +param
       }
     })
     return NextResponse.json(
