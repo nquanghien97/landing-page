@@ -1,8 +1,16 @@
+'use client'
+
 import Image from "next/image";
-import Slider from "./_component/Slider";
+import CustomSlider from "./_component/CustomSlider";
 import BaseButton from "./_component/common/BaseButton";
 import AnimatedText from "./_component/common/AnimatedText";
 import AppFooter from "./_component/AppFooter";
+import Slider from "react-slick";
+import Modal from "./_component/common/Modal";
+import { useState } from "react";
+import { listFeedback } from "@/config/listFeedback";
+import PlayIcon from "@/assets/icons/PlayIcon";
+import bcrypt from 'bcrypt';
 
 export const listImage = [
   {
@@ -17,16 +25,30 @@ export const listImage = [
 
 export default function Home() {
 
+  const [openModal, setOpenModal] = useState(false)
+  const [videoUrl, setVideoUrl] = useState('');
+  const [dragging, setDragging] = useState(false);
+
+  const handleBeforeChange = () => {
+    setDragging(true);
+  };
+
+  const handleAfterChange = () => {
+    setDragging(false);
+  };
+
+  // const password = bcrypt.hashSync('password', 12);
+  // console.log(password)
+
   return (
     <>
-    {/* section */}
       <section className="text-[blue] overflow-hidden m-auto">
-        <Slider>
+        <CustomSlider>
           {listImage.map((item: any) => (
             <div
               key={item.src}
               className={`min-w-full h-full bg-cover bg-no-repeat bg-center-center relative`}
-              style={{backgroundImage: `url(${item.src})`}}
+              style={{ backgroundImage: `url(${item.src})` }}
             >
               <div className="bg-[#00000080] absolute inset-0 flex items-center justify-center">
                 <AnimatedText
@@ -37,63 +59,66 @@ export default function Home() {
               </div>
             </div>
           ))}
-        </Slider>
+        </CustomSlider>
       </section>
-      {/* section */}
       <section className="md:py-7">
-        <div className="max-w-6xl m-auto flex max-md:flex-col">
-          <div className="bg-[#aaaaaa] md:max-w-[40%] max-md:m-3">
-            <div className="p-5 pt-[7%] flex flex-col items-center justify-center h-full">
-              <div className="pb-7 max-md:text-center">
-                <h2 className="text-2xl mb-3">THIẾT KẾ NỘI THẤT</h2>
-                <p>
-                  <span>Với kinh nghiệm nhiều năm cùng đội ngũ chuyên gia có trình độ chuyên môn cao trong lĩnh vực thiết kế nội thất, quy trình thiết kế đạt chuẩn quốc tế, MAM Việt Nam tự tin mang đến cho khách hàng dịch vụ thiết kế nội thất uy tín và chuyên nghiệp hàng đầu. Chúng tôi luôn cập nhật và đón đầu những xu hướng thiết kế hiện đại, sang trọng với mong muốn kiến tạo nên không gian sống hoàn hảo cho mọi gia đình. </span>
-                </p>
-              </div>
-              <div>
-                <BaseButton>
-                  Xem thêm
-                </BaseButton>
-              </div>
-            </div>
+        <div className="max-w-6xl m-auto flex flex-col">
+          <div className="text-center w-full mb-4">
+            <h2 className="text-4xl uppercase">Cảm nhận khách hàng</h2>
           </div>
-          <div className="w-full md:max-w-[60%]">
-            <Image
-              className="w-full"
-              src="https://mamvietnam.vn/wp-content/uploads/2022/07/289561492_179025271233921_7269436589866529378_n-1067x800.jpg"
-              alt="image"
-              width={500}
-              height={500}
-            />
+          <div className="text-center mb-4">
+            <p className="font-bold">Hàng triệu khách hàng đã trải nghiệm và hài lòng. Hoshi tự hào khi trở thành “người bạn” đồng hành đáng tin cậy của các chị em trên hành trình lấy lại làn da trắng mịn, hồng hào và tươi trẻ.</p>
+          </div>
+          <div>
+            <Slider
+              dots={false}
+              infinite={true}
+              slidesToShow={5}
+              draggable
+              swipeToSlide
+              className="flex gap-2"
+              arrows={false}
+              afterChange={handleAfterChange}
+              beforeChange={handleBeforeChange}
+            >
+              {listFeedback.map(feedback => (
+                <div
+                  key={feedback.id}
+                  className="cursor-pointer !mr-2 relative"
+                  onClick={() => {
+                    if(!dragging) {
+                      setVideoUrl(feedback.thumbnailUrl)
+                      setOpenModal(true)
+                    }
+                  }}
+                >
+                  <Image src={feedback.imageUrl} alt={feedback.imageUrl} width={200} height={200} className="w-full" />
+                  <div className="absolute inset-0 bg-black opacity-40" />
+                  <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:scale-150 duration-300 border-2 border-white rounded-full">
+                    <PlayIcon />
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+          <div className="flex justify-center my-4">
+            <BaseButton>Xem thêm</BaseButton>
           </div>
         </div>
       </section>
       {/* section */}
       <section className="md:py-7">
-        <div className="max-w-6xl m-auto flex max-md:flex-col">
-          <div className="w-full md:max-w-[60%]">
-            <Image
-              className="w-full"
-              src="https://mamvietnam.vn/wp-content/uploads/2022/07/289561492_179025271233921_7269436589866529378_n-1067x800.jpg"
-              alt="image"
-              width={500}
-              height={500}
-            />
+        <div className="max-w-6xl m-auto flex flex-col">
+          <div className="text-center w-full mb-4">
+            <h2 className="text-4xl uppercase">Sản phẩm</h2>
           </div>
-          <div className="bg-[#aaaaaa] md:max-w-[40%] max-md:m-3">
-            <div className="p-5 pt-[7%] flex flex-col items-center justify-center h-full">
-              <div className="pb-7 max-md:text-center">
-                <h2 className="text-2xl mb-3">THIẾT KẾ NỘI THẤT</h2>
-                <p>
-                  <span>Với kinh nghiệm nhiều năm cùng đội ngũ chuyên gia có trình độ chuyên môn cao trong lĩnh vực thiết kế nội thất, quy trình thiết kế đạt chuẩn quốc tế, MAM Việt Nam tự tin mang đến cho khách hàng dịch vụ thiết kế nội thất uy tín và chuyên nghiệp hàng đầu. Chúng tôi luôn cập nhật và đón đầu những xu hướng thiết kế hiện đại, sang trọng với mong muốn kiến tạo nên không gian sống hoàn hảo cho mọi gia đình. </span>
-                </p>
-              </div>
-              <div>
-                <BaseButton>
-                  Xem thêm
-                </BaseButton>
-              </div>
-            </div>
+          <h1 className="flex items-center justify-between relavive w-full">
+            <b className="bg-[black] flex-1 h-[2px] opacity-10" />
+            <span className="text-center mx-4 text-3xl">HOSHI KHUYÊN DÙNG</span>
+            <b className="bg-[black] flex-1 h-[2px] opacity-10" />
+          </h1>
+          <div className="text-center mb-4">
+            <p className="font-bold">Hàng triệu khách hàng đã trải nghiệm và hài lòng. Hoshi tự hào khi trở thành “người bạn” đồng hành đáng tin cậy của các chị em trên hành trình lấy lại làn da trắng mịn, hồng hào và tươi trẻ.</p>
           </div>
         </div>
       </section>
@@ -116,14 +141,14 @@ export default function Home() {
           <div className="flex justify-center flex-col w-full">
             <h3 className="uppercase text-[#ff9900] mb-7 font-bold text-2xl text-center">KHÁCH HÀNG NÓI VỀ CHÚNG TÔI</h3>
             <div className="flex">
-              <Slider>
+              <CustomSlider>
                 <div className="flex flex-col justify-center items-center md:basis-2/6 min-w-full bg-[#aaaaaa]">
                   <div className="mb-4">
                     <Image src="https://mamvietnam.vn/wp-content/uploads/2022/07/e-280x280.jpg" alt="img" width={142} height={142} className="rounded-full" />
                   </div>
                   <div className="text-center">
-                      <p className="mb-4">Chị Vân</p>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus harum exercitationem ullam fugit eaque, quasi accusantium cum quibusdam porro rerum repellendus! Quidem ipsum ea doloribus! Aspernatur ipsa nisi blanditiis eligendi.</p>
+                    <p className="mb-4">Chị Vân</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus harum exercitationem ullam fugit eaque, quasi accusantium cum quibusdam porro rerum repellendus! Quidem ipsum ea doloribus! Aspernatur ipsa nisi blanditiis eligendi.</p>
                   </div>
                 </div>
                 <div className="flex flex-col justify-center items-center md:basis-2/6 min-w-full bg-[#aaaaaa]">
@@ -131,8 +156,8 @@ export default function Home() {
                     <Image src="https://mamvietnam.vn/wp-content/uploads/2022/07/e-280x280.jpg" alt="img" width={142} height={142} className="rounded-full" />
                   </div>
                   <div className="text-center">
-                      <p className="mb-4">Chị Vân</p>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus harum exercitationem ullam fugit eaque, quasi accusantium cum quibusdam porro rerum repellendus! Quidem ipsum ea doloribus! Aspernatur ipsa nisi blanditiis eligendi.</p>
+                    <p className="mb-4">Chị Vân</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus harum exercitationem ullam fugit eaque, quasi accusantium cum quibusdam porro rerum repellendus! Quidem ipsum ea doloribus! Aspernatur ipsa nisi blanditiis eligendi.</p>
                   </div>
                 </div>
                 <div className="flex flex-col justify-center items-center md:basis-2/6 min-w-full bg-[#aaaaaa]">
@@ -140,11 +165,11 @@ export default function Home() {
                     <Image src="https://mamvietnam.vn/wp-content/uploads/2022/07/e-280x280.jpg" alt="img" width={142} height={142} className="rounded-full" />
                   </div>
                   <div className="text-center">
-                      <p className="mb-4">Chị Vân</p>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus harum exercitationem ullam fugit eaque, quasi accusantium cum quibusdam porro rerum repellendus! Quidem ipsum ea doloribus! Aspernatur ipsa nisi blanditiis eligendi.</p>
+                    <p className="mb-4">Chị Vân</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus harum exercitationem ullam fugit eaque, quasi accusantium cum quibusdam porro rerum repellendus! Quidem ipsum ea doloribus! Aspernatur ipsa nisi blanditiis eligendi.</p>
                   </div>
                 </div>
-              </Slider>
+              </CustomSlider>
             </div>
           </div>
         </div>
@@ -184,6 +209,13 @@ export default function Home() {
         </div>
       </section>
       <AppFooter />
+      <Modal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        background="#ccc"
+      >
+        <div dangerouslySetInnerHTML={{ __html: videoUrl }} />
+      </Modal>
     </>
   )
 }

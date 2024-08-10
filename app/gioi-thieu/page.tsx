@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Slider from '../_component/Slider'
+import Slider from '../_component/CustomSlider'
 import AppFooter from '../_component/AppFooter'
 import { Metadata } from 'next'
 

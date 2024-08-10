@@ -5,7 +5,7 @@ import { PanInfo, motion } from 'framer-motion';
 import NextIcon from '@/assets/icons/NextIcon';
 import PreIcon from '@/assets/icons/PreIcon';
 
-interface SliderProps {
+interface CustomSliderProps {
   children: ReactNode
   repeat?: number
 }
@@ -22,7 +22,7 @@ function range(end: number) {
   return result;
 }
 
-const Slider = (props: SliderProps) => {
+const CustomSlider = (props: CustomSliderProps) => {
   const { children, repeat } = props; 
   const constraintsRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
@@ -127,4 +127,4 @@ const Slider = (props: SliderProps) => {
   );
 };
 
-export default Slider;
+export default CustomSlider;

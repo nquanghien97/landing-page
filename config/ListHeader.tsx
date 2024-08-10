@@ -4,11 +4,7 @@ export const listHeader = [
     path: '/'
   },
   {
-    title: 'Giới thiệu',
-    path: '/gioi-thieu'
-  },
-  {
-    title: 'Dịch vụ',
+    title: 'Sản phẩm',
     path: '/#',
     children: [
       {
@@ -26,39 +22,43 @@ export const listHeader = [
     ]
   },
   {
-    title: 'Kiến trúc',
-    path: '/kien-truc',
-    children: [
-      {
-        title: 'Biệt thự',
-        path: '/kien-truc/biet-thu',
-      }
-    ]
+    title: 'Khách hàng',
+    path: '/khach-hang'
   },
   {
-    title: 'Nội thất',
-    path: '/noi-that',
-    children: [
-      {
-        title: 'Chung cư',
-        path: '/noi-that/chung-cu'
-      },
-      {
-        title: 'Nhà Phố',
-        path: '/noi-that/nha-pho'
-      },
-      {
-        title: "Coffee - Nhà hàng - Showroom",
-        path: "/noi-that/coffee-nha-hang-showroom"
-      }
-    ]
-  },
-  {
-    title: 'Tin tức',
-    path: '/tin-tuc'
+    title: 'Cẩm nang',
+    path: '/cam-nang',
+    // children: [
+    //   {
+    //     title: 'Biệt thự',
+    //     path: '/kien-truc/biet-thu',
+    //   }
+    // ]
   },
   {
     title: 'Liên hệ',
-    path: '/lien-he'
-  }
+    path: '/lien-he',
+    // children: [
+    //   {
+    //     title: 'Chung cư',
+    //     path: '/noi-that/chung-cu'
+    //   },
+    //   {
+    //     title: 'Nhà Phố',
+    //     path: '/noi-that/nha-pho'
+    //   },
+    //   {
+    //     title: "Coffee - Nhà hàng - Showroom",
+    //     path: "/noi-that/coffee-nha-hang-showroom"
+    //   }
+    // ]
+  },
+  {
+    title: 'Chính sách',
+    path: '/chinh-sach'
+  },
+  // {
+  //   title: 'Liên hệ',
+  //   path: '/lien-he'
+  // }
 ]
