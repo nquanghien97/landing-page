@@ -16,6 +16,15 @@
   }
 }
 
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 4px;
+}
+
 .is-sticky {
   position: fixed;
   top: 0;
@@ -47,3 +56,21 @@
   gap: 12px
 }
 
+.description > ol {
+  list-style: decimal !important;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.description > li {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.description > p {
+  margin-bottom: 10px;
+}
+
+.active-pagination > a {
+  cursor: default;
+}

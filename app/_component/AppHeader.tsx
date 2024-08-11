@@ -41,6 +41,7 @@ function AppHeader() {
                   {item.children ? (
                     <MenuDropdown
                       title={item.title}
+                      path={item.path}
                     >
                       <ul className="bg-[#0f0f10] flex flex-col min-w-[15rem] border border-[#ffffff12] rounded-md md:py-2 text-white">
                         {item.children.map(childItem => (

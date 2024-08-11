@@ -1,7 +1,17 @@
 export interface FeedbackEntity {
-    id: number;
-    title: string;
-    imageUrl: string;
-    content: string;
-    createdAt: Date;
+  data: FeedbackData[],
+  paging: {
+    total: number;
+    page: number;
+    pageSize: number;
   }
+}
+
+export interface FeedbackData {
+  id: number;
+  title: string;
+  imageUrl: string;
+  content: string;
+  createdAt: Date;
+  slug: string;
+}

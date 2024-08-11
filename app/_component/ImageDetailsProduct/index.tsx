@@ -1,5 +1,10 @@
-import Image from "next/image";
-import Slider from "react-slick";
+'use client'
+
+import React, { useState } from 'react'
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper as SwiperType } from 'swiper';
+import Image from 'next/image';
 
 interface ImageDetailsProductProps {
   data: {
@@ -10,32 +15,47 @@ interface ImageDetailsProductProps {
   }[]
 }
 
-function ImageDetailsProduct(props: ImageDetailsProductProps) {
+function LienHe(props: ImageDetailsProductProps) {
   const { data } = props
-  const settings = {
-    customPaging: function(i: number) {
-      return (
-        <div className="w-[112px] h-[112px] cursor-pointer mt-2">
-          <Image src={data[i]?.imageUrl} alt="" width={112} height={112} className="w-full h-full border-2" />
-        </div>
-      );
-    },
-    dots: true,
-    dotsClass: "!flex justify-center gap-3",
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   return (
-    <Slider {...settings}>
-      {data.map(image => (
-        <div key={image.id} className="!flex justify-center">
-          <Image src={image.imageUrl} alt={image.title || ''} width={680} height={200} />
+    <>
+      <div className="max-w-[495px]">
+        <Swiper
+          spaceBetween={10}
+          navigation={true}
+          thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className="mySwiper2"
+        >
+          {data.map(item => (
+            <SwiperSlide key={item.id}>
+              <Image src={item.imageUrl} alt={item.title || ''} width={495} height={495} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      {data.length !== 1 && (
+        <div className="max-w-[495px] my-4">
+          <Swiper
+            onSwiper={setThumbsSwiper}
+            spaceBetween={20}
+            slidesPerView={4}
+            freeMode={true}
+            watchSlidesProgress={true}
+            modules={[FreeMode, Navigation, Thumbs]}
+            className="w-[495px]"
+          >
+            {data.map(item => (
+              <SwiperSlide key={item.id}>
+                <Image src={item.imageUrl} alt={item.title || ''} width={100} height={100} className="w-full" />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-      ))}
-    </Slider>
-  );
+      )}
+    </>
+  )
 }
 
-export default ImageDetailsProduct;
+export default LienHe

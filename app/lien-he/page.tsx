@@ -1,8 +1,9 @@
-import React from 'react'
 
 function LienHe() {
   return (
-    <div>LienHe</div>
+    <>
+      <div>liên hệ</div>
+    </>
   )
 }
 

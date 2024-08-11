@@ -34,6 +34,8 @@ export async function GET(req: Request) {
   const url = new URL(req.url);
   const page = parseInt(url.searchParams.get('page') ?? '1', 10);
   const pageSize = parseInt(url.searchParams.get('pageSize') ?? '10', 10);
+  const orderBy = url.searchParams.get('orderby') ?? 'createdAt'
+  const [field, order] = orderBy.split('-')
 
   const skip = (page - 1) * pageSize;
   const take = pageSize;
@@ -43,7 +45,11 @@ export async function GET(req: Request) {
         images: true
       },
       skip,
-      take
+      take,
+      orderBy: {
+        [field] : order || 'asc'
+      }
+      
     })
     const total = await prisma.product.count()
     return NextResponse.json(

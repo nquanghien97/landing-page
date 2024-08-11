@@ -37,6 +37,7 @@ model Product {
   details     String         @db.LongText
   tags        Tags[]
   slug        String         @unique
+  createdAt   DateTime       @default(now())
 }
 
 model Handbook {

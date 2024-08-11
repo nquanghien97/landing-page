@@ -11,6 +11,7 @@ import PhoneIcon from '@/assets/icons/PhoneIcon';
 import ZaloIcon from '@/assets/icons/ZaloIcon';
 import MessageIcon from '@/assets/icons/MessageIcon';
 import Contact from './_component/Contact';
+import AppFooter from './_component/AppFooter';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -37,6 +38,7 @@ export default function RootLayout({
         <AppHeader />
         {children}
         <Contact />
+        <AppFooter />
       </body>
     </html>
   )

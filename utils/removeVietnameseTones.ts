@@ -8,4 +8,5 @@ export function removeVietnameseTones(str: string): string {
       .toLowerCase() // Chuyển sang chữ thường
       .trim() // Xóa khoảng trắng thừa ở đầu và cuối chuỗi
       .replace(/\s+/g, '-') // Thay thế khoảng trắng giữa các từ bằng dấu gạch ngang
+      .replace(/\?/g, '') // Thay thế dấu ? bằng dấu -
   }

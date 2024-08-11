@@ -8,14 +8,16 @@ import { motion } from 'framer-motion';
 import { useOutsideClick } from '../../../hooks/useOutsideClick';
 import { usePathname } from 'next/navigation';
 import React from 'react';
+import Link from 'next/link';
 
 interface MenuDropdownProps {
   title: string;
   children: ReactNode;
+  path: string;
 }
 
 function MenuDropdown(props: MenuDropdownProps) {
-  const { children, title } = props;
+  const { children, title, path } = props;
   const [isHover, setIsHover] = useState(false);
   const onHover = () => {
     if (window.innerWidth > 1024) {
@@ -75,9 +77,9 @@ function MenuDropdown(props: MenuDropdownProps) {
         onHoverEnd={offHover}
         onClick={toggleClick}
       >
-        <div className={`cursor-pointer leading-[56px] after:content-['\\25be'] flex items-center ${key.includes(`.$${pathname}`) ? 'text-[#ff9900]' : ''}`}>
+        <Link href={path} className={`cursor-pointer leading-[56px] after:content-['\\25be'] flex items-center ${key.includes(`.$${pathname}`) ? 'text-[#ff9900]' : ''}`}>
           {title}
-        </div>
+        </Link>
         <motion.div
           className="absolute top-14 z-[100] w-full"
           initial="exit"

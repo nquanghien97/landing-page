@@ -24,9 +24,9 @@ export const listImage = [
 ]
 
 export default async function Home() {
-  const resProduct = await getProducts({ page: 1, pageSize: 4 })
-  const resFeedback = await getFeedbacks({ page: 1, pageSize: 5 })
-  const resHandbook = await getHandbooks({ page: 1, pageSize: 6 })
+  const resProduct = await getProducts({ page: 1, pageSize: 5 })
+  const resFeedback = await getFeedbacks({ page: 1, pageSize: 7 })
+  const resHandbook = await getHandbooks({ page: 1, pageSize: 8 })
 
   return (
     <>
@@ -126,7 +126,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <AppFooter />
     </>
   )
 }

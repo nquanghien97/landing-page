@@ -5,7 +5,7 @@ export const listHeader = [
   },
   {
     title: 'Sản phẩm',
-    path: '/#',
+    path: '/san-pham',
     children: [
       {
         title: 'Tư vấn',
@@ -28,12 +28,6 @@ export const listHeader = [
   {
     title: 'Cẩm nang',
     path: '/cam-nang',
-    // children: [
-    //   {
-    //     title: 'Biệt thự',
-    //     path: '/kien-truc/biet-thu',
-    //   }
-    // ]
   },
   {
     title: 'Liên hệ',
