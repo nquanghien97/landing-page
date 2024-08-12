@@ -24,7 +24,7 @@ function Products() {
         <div className="text-center mb-4">
           <p className="font-bold">Combo Hoshi công nghệ độc quyền Nhật Bản tạo ra một quy trình chăm sóc da chuyên sâu tác động cả trong lẫn ngoài, cải thiện tình trạng nám toàn diện.</p>
         </div>
-        <div className='max-w-screen-lg m-auto'>
+        <div className=''>
           <Swiper
             slidesPerView={1}
             loop={true}

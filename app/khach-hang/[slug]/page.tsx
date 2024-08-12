@@ -22,7 +22,7 @@ async function Details({ params }: { params: { slug: string } }) {
           <div>
             <Image src={data.imageUrl} alt={data.title} width={100} height={100} className="w-full" />
           </div>
-          <div dangerouslySetInnerHTML={{ __html: data.content}} />
+          <div dangerouslySetInnerHTML={{ __html: data.content}} className='content' />
         </div>
         <RightSidebar />
       </div>

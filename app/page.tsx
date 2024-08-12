@@ -53,7 +53,7 @@ export default async function Home() {
       <Products data={resProduct.data} />
       <Signatures />
       <section className="py-7">
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
           <div className="flex-1 overflow-hidden">
             <Image src={StoryImage1} alt="hinh-anh-cau-chuyen-thanh-cong-3" className="hover:scale-105 duration-500" />
           </div>
@@ -67,7 +67,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
           <div className="flex-1 bg-[#f18017] flex items-center justify-center flex-col">
             <div className="w-5/6 text-white">
               <h2 className="text-4xl py-4">CỘNG ĐỒNG HOSHI</h2>
@@ -90,7 +90,7 @@ export default async function Home() {
             <span className="text-center mx-4 text-3xl uppercase">Những con số biết nói</span>
             <b className="bg-[black] flex-1 h-[2px] opacity-10" />
           </h1>
-          <div className="flex">
+          <div className="flex flex-col md:flex-row max-md:gap-4">
             <div className="flex flex-col justify-center items-center flex-1">
               <div className="mb-4">
                 <span className="text-[#f18017] font-extrabold text-5xl">3</span>

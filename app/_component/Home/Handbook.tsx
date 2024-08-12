@@ -1,14 +1,14 @@
 'use client'
 
 import Image from 'next/image';
-import { HandbookEntity } from '@/entities/Handbooks';
+import { HandbookData, HandbookEntity } from '@/entities/Handbooks';
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { formatCurrency } from '@/utils/currency';
 
 interface HandbookProps {
-  data: HandbookEntity[]
+  data: HandbookData[]
 }
 
 function Handbook(props: HandbookProps) {
@@ -29,29 +29,29 @@ function Handbook(props: HandbookProps) {
         <div className="text-center mb-4">
           <p className="font-bold">Cùng Hoshi khám phá, chia sẻ và học hỏi những phương pháp làm đẹp an toàn, khoa học và hiệu quả để làn da luôn căng tràn sức sống mọi lúc mọi nơi.</p>
         </div>
-        <div className='max-w-screen-lg m-auto'>
+        <div className=''>
           <Swiper
-            slidesPerView={2}
+            slidesPerView={1}
             loop={true}
-            spaceBetween={60}
+            spaceBetween={20}
             navigation
             pagination={{
               clickable: true,
             }}
-            // breakpoints={{
-            //   640: {
-            //     slidesPerView: 1,
-            //     spaceBetween: 20,
-            //   },
-            //   768: {
-            //     slidesPerView: 2,
-            //     spaceBetween: 40,
-            //   },
-            //   1024: {
-            //     slidesPerView: 3,
-            //     spaceBetween: 60,
-            //   },
-            // }}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 60,
+              },
+            }}
             modules={[Navigation, Pagination]}
             className='flex justify-center'
           >
@@ -60,14 +60,12 @@ function Handbook(props: HandbookProps) {
                 key={handbook.id}
               // className='md:max-w-[60%] !w-screen'
               >
-                <div className="flex gap-4">
-                  <Image src={handbook.imageUrl} alt={handbook.title} width={300} height={300} />
+                  <Image src={handbook.imageUrl} alt={handbook.title} width={100} height={100} className='w-full' />
                   <div className='py-2'>
                     <p className='text-base font-bold text-[#f18017]'>{handbook.title}</p>
-                    <div dangerouslySetInnerHTML={{ __html: handbook.content.split(' ').slice(0, 15).join(' ')}} className='font-bold text-xs' />
+                    <div dangerouslySetInnerHTML={{ __html: handbook.content.split(' ').slice(0, 15).join(' ')}} className='font-bold text-xs content' />
                     <span>[...]</span>
                   </div>
-                </div>
               </SwiperSlide>
             ))}
           </Swiper>

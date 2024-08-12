@@ -20,7 +20,7 @@ function LienHe(props: ImageDetailsProductProps) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   return (
     <>
-      <div className="max-w-[495px]">
+      <div className="max-w-full lg:max-w-[495px] max-lg:p-4">
         <Swiper
           spaceBetween={10}
           navigation={true}
@@ -30,13 +30,13 @@ function LienHe(props: ImageDetailsProductProps) {
         >
           {data.map(item => (
             <SwiperSlide key={item.id}>
-              <Image src={item.imageUrl} alt={item.title || ''} width={495} height={495} />
+              <Image src={item.imageUrl} alt={item.title || ''} width={100} height={100} className="w-full" />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
       {data.length !== 1 && (
-        <div className="max-w-[495px] my-4">
+        <div className="max-w-full lg:max-w-[495px] my-4">
           <Swiper
             onSwiper={setThumbsSwiper}
             spaceBetween={20}

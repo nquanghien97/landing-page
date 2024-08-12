@@ -11,7 +11,7 @@ function Contact() {
     setShowButton(!showButton)
   }
   return (
-    <div className="fixed bottom-10 right-10">
+    <div className="fixed bottom-6 right-6 z-[100]">
       <div>
         <div className={`flex gap-2 transition-transform duration-300 ${showButton ? 'translate-x-0' : 'translate-x-[calc(100%+40px)]'}`}>
           <div className="p-2 bg-[#fff] rounded-full hover:scale-105 duration-300">

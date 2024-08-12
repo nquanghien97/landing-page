@@ -77,7 +77,7 @@ function MenuDropdown(props: MenuDropdownProps) {
         onHoverEnd={offHover}
         onClick={toggleClick}
       >
-        <Link href={path} className={`cursor-pointer leading-[56px] after:content-['\\25be'] flex items-center ${key.includes(`.$${pathname}`) ? 'text-[#ff9900]' : ''}`}>
+        <Link href={path} className={`cursor-pointer md:leading-[56px] after:content-['\\25be'] flex items-center ${key.includes(`.$${pathname}`) ? 'text-[#ff9900]' : ''}`}>
           {title}
         </Link>
         <motion.div

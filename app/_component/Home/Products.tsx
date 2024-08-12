@@ -1,14 +1,14 @@
 'use client'
 
 import Image from 'next/image';
-import { ProductEntity } from '@/entities/Products';
+import { DataProducts, ProductEntity } from '@/entities/Products';
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { formatCurrency } from '@/utils/currency';
 
 interface ProductProps {
-  data: ProductEntity[]
+  data: DataProducts[]
 }
 
 function Products(props: ProductProps) {
@@ -29,26 +29,26 @@ function Products(props: ProductProps) {
         <div className="text-center mb-4">
           <p className="font-bold">Là dòng sản phẩm cao cấp hỗ trợ chăm sóc sức khỏe làn da, HOSHI mang đến giải pháp làm đẹp an toàn và hiệu quả cho làn da phụ nữ trên toàn Thế giới.</p>
         </div>
-        <div className='max-w-screen-lg m-auto'>
+        <div>
           <Swiper
-            slidesPerView={3}
             loop={true}
-            spaceBetween={60}
+            slidesPerView={1}
+            spaceBetween={0}
             navigation
             pagination={{
               clickable: true,
             }}
             breakpoints={{
               640: {
-                slidesPerView: 1,
+                slidesPerView: 2,
                 spaceBetween: 20,
               },
               768: {
-                slidesPerView: 2,
+                slidesPerView: 3,
                 spaceBetween: 40,
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 60,
               },
             }}
@@ -58,9 +58,9 @@ function Products(props: ProductProps) {
             {data.map(product => (
               <SwiperSlide
                 key={product.id}
-                // className='md:max-w-[60%] !w-screen'
+                // className='w-full'
               >
-                  <Image src={product.images[0].imageUrl} alt={product.name} width={300} height={300} />
+                  <Image src={product.images[0].imageUrl} alt={product.name} width={100} height={100} className='w-full md:w-[300px]' />
                   <div className='py-2'>
                     <p className='text-xs font-bold text-[#f18017]'>{product.name}</p>
                     <p>{formatCurrency(product.price, 0)} đ</p>

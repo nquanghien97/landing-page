@@ -10,12 +10,39 @@ import MenuDropdown from './common/MenuDropdown';
 import BaseInput from './common/BaseInput';
 import SearchIcon from '@/assets/icons/SearchIcon';
 import ShoppingCartIcon from '@/assets/icons/ShoppingCartIcon';
+import { useProductsStore } from '@/zustand/products';
+import DataCart from './DataCart';
+import { useOutsideClick } from '@/hooks/useOutsideClick';
+import useDebounce from '@/hooks/useDebounce';
+import { DataProducts, ProductEntity } from '@/entities/Products';
+import { getProducts } from '@/services/products';
+import SearchResult from './SearchResult';
+import LoadingIcon from '@/assets/icons/LoadingIcon';
 
 function AppHeader() {
 
   const [isSticky, setIsSticky] = useState(false);
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
   const pathname = usePathname();
+  const [openDataCart, setOpenDataCart] = useState(false);
+  const [openDataSearch, setOpenDataSearch] = useState(false);
+  const [productName, setProductName] = useState('');
+  const [productsResult, setProductsResult] = useState<DataProducts[]>([])
+  const [loading, setLoading] = useState(false);
+  const debounceName = useDebounce(productName, 500)
+
+  const { products } = useProductsStore();
+  const quantity = products.reduce((acc, cur) => {
+    return acc + cur.quantity
+  }, 0);
+
+  const dataCartRef = useOutsideClick(() => {
+    setOpenDataCart(false);
+  })
+
+  const dataProductsRef = useOutsideClick(() => {
+    setOpenDataSearch(false);
+  });
 
   useEffect(() => {
     const handleScroll = (e: any) => {
@@ -28,6 +55,35 @@ function AppHeader() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if(!e.target.value) {
+      setOpenDataSearch(false);
+    } else {
+      setOpenDataSearch(true);
+    }
+    setProductName(e.target.value)
+  }
+
+  const fetchDataSearch = async () => {
+    setLoading(true);
+    try {
+      if(productName) {
+        const res = await getProducts({ name: debounceName })
+        setProductsResult(res.data)
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    (async () => {
+      await fetchDataSearch()
+    })()
+  }, [debounceName])
 
   return (
     <>
@@ -49,7 +105,7 @@ function AppHeader() {
                         <ul className="bg-[#0f0f10] flex flex-col min-w-[15rem] border border-[#ffffff12] rounded-lg lg:py-2 text-white">
                           {item.children.map(childItem => (
                             <li key={childItem.path}>
-                              <Link className={`cursor-pointer hover:text-[#ff9900] px-4 py-2 w-full flex items-center`} href={childItem.path}>
+                              <Link className={`cursor-pointer hover:text-[#f18017] px-4 py-2 w-full flex items-center`} href={childItem.path}>
                                 {childItem.title}
                               </Link>
                             </li>
@@ -57,7 +113,7 @@ function AppHeader() {
                         </ul>
                       </MenuDropdown>
                     ) : (
-                      <Link href={item.path} className={`hover:text-[#ff9900] duration-300 ${pathname === item.path ? 'text-[#ff9900]' : ''}`}>
+                      <Link href={item.path} className={`hover:text-[#f18017] duration-300 ${pathname === item.path ? 'text-[#f18017]' : ''}`}>
                         {item.title}
                       </Link>
                     )}
@@ -65,11 +121,15 @@ function AppHeader() {
                 ))}
               </ul>
               <div className="flex items-center gap-4">
-                <div className="max-lg:hidden lg:max-w-[120px] xl:max-w-[200px]">
-                  <BaseInput placeholder='Tìm kiếm...' startIcon={<SearchIcon />} />
+                <div className="max-lg:hidden lg:max-w-[120px] xl:max-w-[200px] relative">
+                  <BaseInput placeholder='Tìm kiếm...' startIcon={<SearchIcon />} endIcon={loading && <LoadingIcon size='small' />} onChange={handleChangeInput} value={productName || ''} />
+                  {(openDataSearch && productsResult.length !== 0) && <SearchResult data={productsResult} dataProductsRef={dataProductsRef} setOpenDataSearch={setOpenDataSearch} />}
                 </div>
-                <div className='cursor-pointer'>
-                  <ShoppingCartIcon color='white' />
+                <div className='relative'>
+                  <div className="cursor-pointer" onClick={() => setOpenDataCart(pre => !pre)}>
+                    <ShoppingCartIcon color='white' numberCart={quantity} />
+                  </div>
+                  {openDataCart && <DataCart products={products} dataCartRef={dataCartRef} />}
                 </div>
               </div>
             </div>
@@ -86,45 +146,34 @@ function AppHeader() {
               exit="-24rem"
             >
               <div className="py-7">
-                <div>
+                <div className="max-md:p-2 max-md:border-b-2">
                   <BaseInput placeholder='Tìm kiếm...' endIcon={<SearchIcon />} />
                 </div>
-                <ul className="flex max-lg:flex-col ">
-                  <li className="flex px-3 py-1 hover:bg-[#0000000d] text-black">
-                    <Link href="/" className="p-3 w-full h-full">
-                      Trang chủ
-                    </Link>
-                  </li>
-                  <li className="flex px-3 py-1 hover:bg-[#0000000d] text-black">
-                    <Link href="/" className="p-3 w-full h-full">
-                      Giới thiệu
-                    </Link>
-                  </li>
-                  <li className="flex px-3 py-1 hover:bg-[#0000000d] text-black">
-                    <Link href="/" className="p-3 w-full h-full">
-                      Dịch vụ
-                    </Link>
-                  </li>
-                  <li className="flex px-3 py-1 hover:bg-[#0000000d] text-black">
-                    <Link href="/" className="p-3 w-full h-full">
-                      Kiến trúc
-                    </Link>
-                  </li>
-                  <li className="flex px-3 py-1 hover:bg-[#0000000d] text-black">
-                    <Link href="/" className="p-3 w-full h-full">
-                      Nội thất
-                    </Link>
-                  </li>
-                  <li className="flex px-3 py-1 hover:bg-[#0000000d] text-black">
-                    <Link href="/" className="p-3 w-full h-full">
-                      Tin tức
-                    </Link>
-                  </li>
-                  <li className="flex px-3 py-1 hover:bg-[#0000000d] text-black">
-                    <Link href="/" className="p-3 w-full h-full">
-                      Liên hệ
-                    </Link>
-                  </li>
+                <ul className="flex max-lg:flex-col text-black">
+                  {listHeader.map(item => (
+                    <li key={item.path} className="px-3 md:py-1 py-4 max-md:border-b-2" onClick={() => setIsOpenSidebar(false)}>
+                      {item.children ? (
+                        <MenuDropdown
+                          title={item.title}
+                          path={item.path}
+                        >
+                          <ul className="bg-[#0f0f10] flex flex-col min-w-[15rem] border border-[#ffffff12] rounded-lg lg:py-2">
+                            {item.children.map(childItem => (
+                              <li key={childItem.path}>
+                                <Link className={`cursor-pointer hover:text-[#f18017] px-4 py-2 w-full flex items-center`} href={childItem.path}>
+                                  {childItem.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </MenuDropdown>
+                      ) : (
+                        <Link href={item.path} className={`hover:text-[#f18017] duration-300 ${pathname === item.path ? 'text-[#f18017]' : ''}`}>
+                          {item.title}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </AppSidebar>

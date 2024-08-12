@@ -18,18 +18,9 @@ export default function Feedback(props: FeedbackProps) {
 
   const [openModal, setOpenModal] = useState(false)
   const [videoUrl, setVideoUrl] = useState('');
-  const [dragging, setDragging] = useState(false);
-
-  const handleBeforeChange = () => {
-    setDragging(true);
-  };
-
-  const handleAfterChange = () => {
-    setDragging(false);
-  };
 
   return (
-    <section className="md:py-7">
+    <section className="py-7">
       <div className="max-w-6xl m-auto flex flex-col">
         <div className="text-center w-full mb-4">
           <h2 className="text-4xl uppercase text-[#f18017]">Cảm nhận khách hàng</h2>
@@ -37,40 +28,38 @@ export default function Feedback(props: FeedbackProps) {
         <div className="text-center mb-4">
           <p className="font-bold">Hàng triệu khách hàng đã trải nghiệm và hài lòng. Hoshi tự hào khi trở thành “người bạn” đồng hành đáng tin cậy của các chị em trên hành trình lấy lại làn da trắng mịn, hồng hào và tươi trẻ.</p>
         </div>
-        <div className='max-w-screen-lg m-auto overflow-hidden'>
+        <div className='overflow-hidden'>
           <Swiper
-            slidesPerView={4}
+            slidesPerView={1}
             loop={true}
             spaceBetween={20}
-            // breakpoints={{
-            //   640: {
-            //     slidesPerView: 1,
-            //     spaceBetween: 20,
-            //   },
-            //   768: {
-            //     slidesPerView: 2,
-            //     spaceBetween: 40,
-            //   },
-            //   1024: {
-            //     slidesPerView: 3,
-            //     spaceBetween: 60,
-            //   },
-            // }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 60,
+              },
+            }}
           >
             {listFeedback.map(feedback => (
               <SwiperSlide
                 key={feedback.id}
-                // className="cursor-pointer !mr-2 relative !w-[200px] h-[150px]"
                 onClick={() => {
-                  if (!dragging) {
                     setVideoUrl(feedback.content)
                     setOpenModal(true)
-                  }
                 }}
+                className="w-full group cursor-pointer"
               >
-                <Image src={feedback.imageUrl} alt={feedback.imageUrl} width={300} height={200} className="w-full" />
-                <div className="absolute inset-0 bg-black opacity-40" />
-                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:scale-150 duration-300 border-2 border-white rounded-full">
+                <Image src={feedback.imageUrl} alt={feedback.imageUrl} width={100} height={100} className="w-full" />
+                <div className="absolute inset-0 bg-black opacity-40 w-full" />
+                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 duration-300 border-2 border-white rounded-full cursor-pointer">
                   <PlayIcon />
                 </div>
               </SwiperSlide>

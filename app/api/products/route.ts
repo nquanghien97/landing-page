@@ -33,6 +33,7 @@ export async function POST(req: Request) {
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const page = parseInt(url.searchParams.get('page') ?? '1', 10);
+  const name = url.searchParams.get('name') ?? undefined;
   const pageSize = parseInt(url.searchParams.get('pageSize') ?? '10', 10);
   const orderBy = url.searchParams.get('orderby') ?? 'createdAt'
   const [field, order] = orderBy.split('-')
@@ -43,6 +44,11 @@ export async function GET(req: Request) {
     const products = await prisma.product.findMany({
       include: {
         images: true
+      },
+      where: {
+        name: {
+          contains: name,
+        }
       },
       skip,
       take,

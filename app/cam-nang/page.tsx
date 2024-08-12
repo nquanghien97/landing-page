@@ -21,7 +21,7 @@ async function CamNang({ searchParams }: { searchParams: { [key: string]: string
                 <p>{handbook.title}</p>
                 <div className="bg-[#0000001a] h-[3px] max-w-[30px] md:mb-4 my-2" />
                 <div className="group-hover:text-[#f18017] duration-300">
-                  <div dangerouslySetInnerHTML={{ __html: handbook.content.split(' ').slice(0, 15).join(' ') }} className='font-bold text-sm' />
+                  <div dangerouslySetInnerHTML={{ __html: handbook.content.split(' ').slice(0, 15).join(' ') }} className='font-bold text-sm content' />
                   <span className="font-bold">[...]</span>
                 </div>
               </div>
