@@ -6,20 +6,20 @@ export const listHeader = [
   {
     title: 'Sản phẩm',
     path: '/san-pham',
-    children: [
-      {
-        title: 'Tư vấn',
-        path: '/dich-vu/tu-van'
-      },
-      {
-        title: 'Thiết kế',
-        path: '/dich-vu/thiet-ke'
-      },
-      {
-        title: 'Thi công',
-        path: '/dich-vu/thi-cong'
-      }
-    ]
+    // children: [
+    //   {
+    //     title: 'Tư vấn',
+    //     path: '/dich-vu/tu-van'
+    //   },
+    //   {
+    //     title: 'Thiết kế',
+    //     path: '/dich-vu/thiet-ke'
+    //   },
+    //   {
+    //     title: 'Thi công',
+    //     path: '/dich-vu/thi-cong'
+    //   }
+    // ]
   },
   {
     title: 'Khách hàng',

@@ -6,7 +6,6 @@ interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   fullWidth?: boolean;
   placeholder?: string;
-  type?: string;
   onShowPassword?: () => void;
   message?: string;
   name?: string;
@@ -20,7 +19,6 @@ const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>((props, ref) => {
     placeholder,
     startIcon,
     endIcon,
-    type,
     onShowPassword,
     message,
     name,
@@ -47,7 +45,6 @@ const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>((props, ref) => {
           ref={ref}
           className={inputClass}
           disabled={disabled}
-          type={type}
           defaultValue={defaultValue}
           name={name}
           // onChange={onChangeInput}

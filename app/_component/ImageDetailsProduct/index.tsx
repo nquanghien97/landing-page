@@ -36,23 +36,33 @@ function LienHe(props: ImageDetailsProductProps) {
         </Swiper>
       </div>
       {data.length !== 1 && (
-        <div className="max-w-full lg:max-w-[495px] my-4">
           <Swiper
             onSwiper={setThumbsSwiper}
             spaceBetween={20}
-            slidesPerView={4}
-            freeMode={true}
-            watchSlidesProgress={true}
+            slidesPerView={3}
             modules={[FreeMode, Navigation, Thumbs]}
-            className="w-[495px]"
+            className="flex justify-start mt-2 md:max-w-[495px]"
+            breakpoints={{
+              640: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+            }}
           >
             {data.map(item => (
               <SwiperSlide key={item.id}>
-                <Image src={item.imageUrl} alt={item.title || ''} width={100} height={100} className="w-full" />
+                <Image src={item.imageUrl} alt={item.title || ''} width={100} height={100} className="md:w-[495px] w-[300px]" />
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
       )}
     </>
   )

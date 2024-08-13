@@ -103,17 +103,17 @@ export async function GET(req: Request, { params }: { params: { param: number | 
   }
 }
 
-export async function DELETE(req: Request, { params }: { params: { id: number } }) {
-  const { id } = params
+export async function DELETE(req: Request, { params }: { params: { param: number } }) {
+  const { param } = params
   try {
     await prisma.productImage.deleteMany({
       where: {
-        productId: +id
+        productId: +param
       }
     })
     await prisma.product.delete({
       where: {
-        id: +id
+        id: +param
       }
     })
     return NextResponse.json(
