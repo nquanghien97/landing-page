@@ -1,7 +1,6 @@
 import Image from "next/image";
 import CustomSlider from "./_component/CustomSlider";
 import AnimatedText from "./_component/common/AnimatedText";
-import AppFooter from "./_component/AppFooter";
 import Feedback from "./_component/Home/Feedback";
 import Products from "./_component/Home/Products";
 import { getProducts } from "@/services/products";
@@ -11,17 +10,7 @@ import StoryImage1 from '@/assets/images/story/hinh-anh-cau-chuyen-thanh-cong-3.
 import StoryImage2 from '@/assets/images/story/hinh-anh-cong-dong-3.jpg'
 import { getHandbooks } from "@/services/handbooks";
 import Handbook from "./_component/Home/Handbook";
-
-export const listImage = [
-  {
-    src: 'https://mamvietnam.vn/wp-content/uploads/2022/07/289967096_179026527900462_8941165103126664339_n.jpg',
-    title: 'THIẾT KẾ KIẾN TRÚC - NHÀ MÁY SẢN XUẤT'
-  },
-  {
-    src: 'https://mamvietnam.vn/wp-content/uploads/2022/07/289970998_179025507900564_6123763105644138584_n.jpg',
-    title: 'THIẾT KẾ NỘI THẤT - THI CÔNG NỘI THẤT'
-  },
-]
+import { listImage } from "@/config/ListImage";
 
 export default async function Home() {
   const resProduct = await getProducts({ page: 1, pageSize: 5 })

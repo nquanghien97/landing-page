@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import AppSidebar from './AppSidebar';
@@ -57,7 +57,7 @@ function AppHeader() {
   }, []);
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if(!e.target.value) {
+    if (!e.target.value) {
       setOpenDataSearch(false);
     } else {
       setOpenDataSearch(true);
@@ -65,10 +65,10 @@ function AppHeader() {
     setProductName(e.target.value)
   }
 
-  const fetchDataSearch = async () => {
+  const fetchDataSearch = useCallback(async () => {
     setLoading(true);
     try {
-      if(productName) {
+      if (productName) {
         const res = await getProducts({ name: debounceName })
         setProductsResult(res.data)
       }
@@ -78,12 +78,12 @@ function AppHeader() {
       setLoading(false);
     }
   }
-
+    , [debounceName, productName])
   useEffect(() => {
     (async () => {
       await fetchDataSearch()
     })()
-  }, [debounceName])
+  }, [debounceName, fetchDataSearch])
 
   return (
     <>
@@ -101,6 +101,7 @@ function AppHeader() {
                       <MenuDropdown
                         title={item.title}
                         path={item.path}
+                        key={item.key}
                       >
                         <ul className="bg-[#0f0f10] flex flex-col min-w-[15rem] border border-[#ffffff12] rounded-lg lg:py-2 text-white">
                           {item.children.map(childItem => (
@@ -113,7 +114,7 @@ function AppHeader() {
                         </ul>
                       </MenuDropdown>
                     ) : (
-                      <Link href={item.path} className={`hover:text-[#f18017] duration-300 ${pathname === item.path ? 'text-[#f18017]' : ''}`}>
+                      <Link key={item.key} href={item.path} className={`hover:text-[#f18017] duration-300 ${pathname === item.path ? 'text-[#f18017]' : ''}`}>
                         {item.title}
                       </Link>
                     )}

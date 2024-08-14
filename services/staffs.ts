@@ -4,6 +4,6 @@ export async function getStaffs({ page, pageSize, search }: { page?: number, pag
     if (page) params.append('page', page.toString());
     if (pageSize) params.append('pageSize', pageSize.toString());
     if (search) params.append('search', search.toString());
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/staffs?${params.toString()}`, { next: { revalidate: 0 } })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/staffs?${params.toString()}`, { next: { revalidate: 60 } })
     return res.json()
   }

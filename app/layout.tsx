@@ -7,22 +7,21 @@ import "slick-carousel/slick/slick-theme.css";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import PhoneIcon from '@/assets/icons/PhoneIcon';
-import ZaloIcon from '@/assets/icons/ZaloIcon';
-import MessageIcon from '@/assets/icons/MessageIcon';
 import Contact from './_component/Contact';
 import AppFooter from './_component/AppFooter';
+
+export const dynamic = 'force-dynamic';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.google.com/'),
-  title: 'Trang chủ - MAM DESIGN - Thiết kế và thi công nội thất',
+  title: 'HOSHI',
   openGraph: {
     locale: 'vi_VN',
-    title: 'Trang chủ - MAM DESIGN - Thiết kế và thi công nội thất',
+    title: 'HOSHI',
     url: 'https://www.google.com',
-    siteName: 'Trang chủ - MAM DESIGN - Thiết kế và thi công nội thất',
+    siteName: 'HOSHI',
     type: 'website'
   }
 }
