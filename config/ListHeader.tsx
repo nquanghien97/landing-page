@@ -16,23 +16,23 @@ export const listHeader: ListHeaderType[] = [
     title: 'Sản phẩm',
     path: '/san-pham',
     key: '2',
-    children: [
-      {
-        title: 'Tư vấn',
-        path: '/dich-vu/tu-van',
-        key: '2.1',
-      },
-      {
-        title: 'Thiết kế',
-        path: '/dich-vu/thiet-ke',
-        key: '2.2',
-      },
-      {
-        title: 'Thi công',
-        path: '/dich-vu/thi-cong',
-        key: '2.3',
-      }
-    ]
+    // children: [
+    //   {
+    //     title: 'Tư vấn',
+    //     path: '/dich-vu/tu-van',
+    //     key: '2.1',
+    //   },
+    //   {
+    //     title: 'Thiết kế',
+    //     path: '/dich-vu/thiet-ke',
+    //     key: '2.2',
+    //   },
+    //   {
+    //     title: 'Thi công',
+    //     path: '/dich-vu/thi-cong',
+    //     key: '2.3',
+    //   }
+    // ]
   },
   {
     title: 'Khách hàng',

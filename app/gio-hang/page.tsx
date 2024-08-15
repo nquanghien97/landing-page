@@ -4,6 +4,7 @@ import { DataProducts } from '@/entities/Products';
 import { formatCurrency } from '@/utils/currency';
 import { useProductsStore } from '@/zustand/products';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
@@ -62,12 +63,12 @@ function CartPage() {
             </tbody>
           </table>
           <div className="my-4 w-full" onClick={() => router.push('/san-pham')}>
-              <span
-                className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-4 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white"
-              >
-                Tiếp tục xem sản phẩm
-              </span>
-            </div>
+            <span
+              className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-4 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white"
+            >
+              Tiếp tục xem sản phẩm
+            </span>
+          </div>
         </div>
         <div className="lg:max-w-[40%] basis-2/5 max-lg:p-3 lg:px-3">
           <div className="border-b-2">
@@ -82,12 +83,14 @@ function CartPage() {
               <p>Tổng</p>
               <p>{formatCurrency(getTotalPrice(), 0)} đ</p>
             </div>
-            <div className="my-4 w-full" onClick={() => router.push('/gio-hang')}>
-              <span
-                className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-4 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white"
-              >
-                Tiến hành thanh toán
-              </span>
+            <div className="my-4 w-full">
+              <Link href="/thanh-toan">
+                <span
+                  className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-4 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white"
+                >
+                  Tiến hành thanh toán
+                </span>
+              </Link>
             </div>
           </div>
         </div>
