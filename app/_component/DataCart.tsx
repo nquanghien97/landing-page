@@ -3,6 +3,7 @@ import { DataProducts } from '@/entities/Products'
 import { formatCurrency } from '@/utils/currency';
 import { useProductsStore } from '@/zustand/products';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 interface DataCart extends DataProducts {
@@ -23,7 +24,11 @@ function DataCart(props: DataCartProps) {
 
   return (
     <div className="absolute top-[100%] right-[30%] bg-[white] p-4 shadow-2xl rounded-md w-[260px]" ref={dataCartRef}>
-      <div className="pb-4 border-b-[1px]">
+      {products.length === 0 ? (
+        <p className="text-black font-bold text-center">Chưa có sản phẩm nào trong giỏ hàng</p>
+      ) : (
+        <>
+          <div className="pb-4 border-b-[1px]">
         <div className="flex flex-col gap-4">
           {products.map(product => (
             <div key={product.id} className="flex">
@@ -54,14 +59,18 @@ function DataCart(props: DataCartProps) {
             Xem giỏ hàng
           </span>
         </div>
-        <div className="flex w-full">
-          <span
-            className="w-full text-center cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white"
-          >
-            Thanh toán
-          </span>
+        <div className="flex w-full my-2">
+          <Link href='/thanh-toan' className="w-full">
+            <p
+              className="w-full text-center cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white"
+            >
+              Thanh toán
+            </p>
+          </Link>
         </div>
       </div>
+        </>
+      )}
     </div>
   )
 }

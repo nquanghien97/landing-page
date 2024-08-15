@@ -1,10 +1,11 @@
 'use client';
 
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import BaseInput from '../_component/common/BaseInput'
 import { useProductsStore } from '@/zustand/products';
 import { formatCurrency } from '@/utils/currency';
 import { METHODS } from 'http';
+import { useRouter } from 'next/navigation';
 
 interface FormValues {
   'Họ tên'?: string,
@@ -15,7 +16,7 @@ interface FormValues {
 }
 
 function ChekOut() {
-
+  const router = useRouter();
   const [values, setValues] = useState<FormValues>({
     'Họ tên': 'name',
     'Địa chỉ': 'address',
@@ -50,7 +51,12 @@ function ChekOut() {
       )
     }
   }
-  console.log(values['Họ tên'])
+
+  useEffect(() => {
+    if(products.length === 0) {
+      router.push('/gio-hang');
+    }
+  }, [products.length, router])
 
   return (
     <div className="max-w-6xl m-auto mb-4">
