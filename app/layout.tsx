@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import Contact from './_component/Contact';
 import AppFooter from './_component/AppFooter';
+import Head from 'next/head';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,6 +24,14 @@ export const metadata: Metadata = {
     url: 'https://www.google.com',
     siteName: 'HOSHI',
     type: 'website'
+  },
+  icons: {
+    icon: [
+      {
+        rel: 'icon',
+        url: '/favicon.ico'
+      }
+    ]
   }
 }
 

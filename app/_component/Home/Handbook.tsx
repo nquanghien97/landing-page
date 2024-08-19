@@ -6,6 +6,7 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { formatCurrency } from '@/utils/currency';
+import Link from 'next/link';
 
 interface HandbookProps {
   data: HandbookData[]
@@ -71,7 +72,9 @@ function Handbook(props: HandbookProps) {
           </Swiper>
         </div>
         <div className="my-4 flex justify-center">
-          <span className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white">Xem thêm</span>
+          <Link href="/cam-nang">
+            <span className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white">Xem thêm</span>
+          </Link>
         </div>
       </div>
     </section>
