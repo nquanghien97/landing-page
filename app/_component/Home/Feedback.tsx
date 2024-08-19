@@ -13,7 +13,6 @@ interface FeedbackProps {
 export default function Feedback(props: FeedbackProps) {
 
   const { listFeedback } = props;
-  console.log(listFeedback)
 
   const [openModal, setOpenModal] = useState(false)
   const [videoUrl, setVideoUrl] = useState('');

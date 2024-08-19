@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 async function KhachHang({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
-  const dataFeedback: FeedbackEntity = await getFeedbacks({ page: searchParams.page ? +searchParams.page : 1, pageSize: 2 })
+  const dataFeedback: FeedbackEntity = await getFeedbacks({ page: searchParams.page ? +searchParams.page : 1, pageSize: 5 })
 
   return (
     <div className="max-w-6xl m-auto mb-4">
