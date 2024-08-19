@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import AppSidebar from './AppSidebar';
@@ -44,18 +45,6 @@ function AppHeader() {
     setOpenDataSearch(false);
   });
 
-  useEffect(() => {
-    const handleScroll = (e: any) => {
-      const scrollTop = window.scrollY;
-      setIsSticky(scrollTop >= 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.value) {
       setOpenDataSearch(false);
@@ -87,23 +76,25 @@ function AppHeader() {
 
   return (
     <>
-      <div className={`h-[70px] fixed inset-x-0 top-0 px-4 duration-300 z-50 bg-black text-white ${isSticky ? 'is-sticky' : ''}`}>
+      <div className={`h-[70px] fixed inset-x-0 top-0 px-4 duration-300 z-50 bg-[#3e7c30] text-white`}>
         <div className="max-w-6xl m-auto flex items-center justify-between h-full">
           <div className="px-2 max-lg:flex-1">
-            <p className="max-lg:w-full max-lg:text-center">Logo</p>
+            <Link href="/" className="max-lg:w-full max-lg:text-center flex justify-center">
+              <Image src="/logo.png" alt="logo" width={100} height={100} className="cursor-pointer" />
+            </Link>
           </div>
           <div className='flex gap-2'>
             <div className="flex items-center gap-2">
-              <ul className="flex items-center gap-4 max-lg:flex-col max-lg:hidden">
+              <ul className="flex items-center gap-4 max-lg:flex-col max-lg:hidden uppercase">
                 {listHeader.map(item => (
-                  <li key={item.path} className="px-3 py-1">
+                  <li key={item.path} className="px-3 py-1 font-bold">
                     {item.children ? (
                       <MenuDropdown
                         title={item.title}
                         path={item.path}
                         key={item.key}
                       >
-                        <ul className="bg-[#0f0f10] flex flex-col min-w-[15rem] border border-[#ffffff12] rounded-lg lg:py-2 text-white">
+                        <ul className="bg-[#3e7c30] flex flex-col min-w-[15rem] border border-[#ffffff12] rounded-lg lg:py-2 text-white">
                           {item.children.map(childItem => (
                             <li key={childItem.path}>
                               <Link className={`cursor-pointer hover:text-[#f18017] px-4 py-2 w-full flex items-center`} href={childItem.path}>

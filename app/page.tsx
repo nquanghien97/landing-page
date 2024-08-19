@@ -1,43 +1,23 @@
 import Image from "next/image";
-import CustomSlider from "./_component/CustomSlider";
-import AnimatedText from "./_component/common/AnimatedText";
 import Feedback from "./_component/Home/Feedback";
 import Products from "./_component/Home/Products";
 import { getProducts } from "@/services/products";
 import { getFeedbacks } from "@/services/feedbacks";
 import Signatures from "./_component/Home/Signature";
-import StoryImage1 from '@/assets/images/story/hinh-anh-cau-chuyen-thanh-cong-3.jpg';
-import StoryImage2 from '@/assets/images/story/hinh-anh-cong-dong-3.jpg'
+import StoryImage1 from '@/assets/images/story/story-1.jpg';
+import StoryImage2 from '@/assets/images/story/story-2.jpg'
 import { getHandbooks } from "@/services/handbooks";
 import Handbook from "./_component/Home/Handbook";
-import { listImage } from "@/config/ListImage";
+import Banner from "./_component/Home/Banner";
 
 export default async function Home() {
   const resProduct = await getProducts({ page: 1, pageSize: 5 })
-  const resFeedback = await getFeedbacks({ page: 1, pageSize: 7 })
+  const resFeedback = await getFeedbacks({ page: 1, pageSize: 6 })
   const resHandbook = await getHandbooks({ page: 1, pageSize: 8 })
 
   return (
     <>
-      <section className="text-[blue] overflow-hidden m-auto">
-        <CustomSlider>
-          {listImage.map((item: any) => (
-            <div
-              key={item.src}
-              className={`min-w-full h-full bg-cover bg-no-repeat bg-center-center relative`}
-              style={{ backgroundImage: `url(${item.src})` }}
-            >
-              <div className="bg-[#00000080] absolute inset-0 flex items-center justify-center">
-                <AnimatedText
-                  el="h2"
-                  text={item.title}
-                  className='w-[70%] text-center'
-                />
-              </div>
-            </div>
-          ))}
-        </CustomSlider>
-      </section>
+      <Banner />
       <Feedback listFeedback={resFeedback.data} />
       <Products data={resProduct.data} />
       <Signatures />

@@ -4,6 +4,8 @@ import { getHandbooks } from "@/services/handbooks"
 import { getProducts } from "@/services/products"
 import { formatCurrency } from "@/utils/currency"
 import Image from "next/image"
+import Image1 from "@/assets/images/right-banner/anh-doc-1.jpg";
+import Image2 from "@/assets/images/right-banner/anh-doc-2.jpg";
 
 async function RightSidebar() {
   const dataProducts: ProductEntity = await getProducts({ page: 1, pageSize: 3 })
@@ -11,6 +13,14 @@ async function RightSidebar() {
   return (
     <div className="flex flex-col gap-4 w-full md:max-w-[25%] md:basis-1/4 my-4 md:m-0">
       <div className="px-4 w-full md:mb-4">
+        <div className="flex flex-col gap-2 mb-4">
+          <div className="w-full">
+            <Image src={Image1} alt="Ảnh dọc 1" width={100} height={100} className="w-full" unoptimized />
+          </div>
+          <div className="w-full">
+            <Image src={Image2} alt="Ảnh dọc 2" width={100} height={100} className="w-full" unoptimized />
+          </div>
+        </div>
         <div>
           <div>
             <h3 className="uppercase text-xl font-bold">Cẩm nang</h3>

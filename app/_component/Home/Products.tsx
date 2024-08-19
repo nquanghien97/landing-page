@@ -58,7 +58,7 @@ function Products(props: ProductProps) {
             {data.map(product => (
               <SwiperSlide
                 key={product.id}
-                // className='w-full'
+                className='w-full pb-6'
               >
                   <Image src={product.images[0].imageUrl} alt={product.name} width={100} height={100} className='w-full md:w-[300px]' />
                   <div className='py-2'>

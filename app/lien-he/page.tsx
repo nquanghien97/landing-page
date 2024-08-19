@@ -29,7 +29,8 @@ async function LienHe({ searchParams }: { searchParams: { [key: string]: string 
         </div>
       </div>
       <div className="max-w-6xl m-auto mb-4">
-        <div className="flex flex-col">
+        {searchParams.search && (
+          <div className="flex flex-col">
           {data.length === 0 ? (
             <h2 className="text-2xl font-bold text-center">Không tồn tại thông tin</h2>
           ) : (
@@ -76,6 +77,7 @@ async function LienHe({ searchParams }: { searchParams: { [key: string]: string 
             ))
           )}
         </div>
+        )}
       </div>
     </>
   )

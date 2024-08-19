@@ -4,9 +4,9 @@ import Image from 'next/image';
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
-import Image1 from '@/assets/images/signatures/banner-nho-02-2048x841.jpg';
-import Image2 from '@/assets/images/signatures/banner-tet-1.png';
-import Image3 from '@/assets/images/signatures/banner-tet-2.png';
+import Image1 from '@/assets/images/signatures/trang-chu-3.jpg';
+import Image2 from '@/assets/images/signatures/trang-chu-4.jpg';
+import Image3 from '@/assets/images/signatures/trang-chu-5.jpg';
 
 function Products() {
 

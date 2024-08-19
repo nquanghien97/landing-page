@@ -2,12 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Slider from "react-slick"
 import Modal from "../common/Modal";
 import PlayIcon from "@/assets/icons/PlayIcon";
 import { FeedbackData } from "@/entities/Feedback";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 
 interface FeedbackProps {
   listFeedback: FeedbackData[]
@@ -15,6 +13,7 @@ interface FeedbackProps {
 export default function Feedback(props: FeedbackProps) {
 
   const { listFeedback } = props;
+  console.log(listFeedback)
 
   const [openModal, setOpenModal] = useState(false)
   const [videoUrl, setVideoUrl] = useState('');
