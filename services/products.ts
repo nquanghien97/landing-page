@@ -5,11 +5,11 @@ export async function getProducts({ page, pageSize, orderby, name }: { page?: nu
   if (pageSize) params.append('pageSize', pageSize.toString());
   if (orderby) params.append('orderby', orderby.toString());
   if (name) params.append('name', name.toString());
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products?${params.toString()}`, { next: { revalidate: 10 } })
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products?${params.toString()}`)
   return res.json()
 }
 
 export async function getProduct(slug: string | number) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/${slug}`, { next: { revalidate: 10 } })
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/${slug}`)
   return res.json()
 }

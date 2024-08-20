@@ -6,6 +6,7 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { formatCurrency } from '@/utils/currency';
+import { useRouter } from 'next/navigation';
 
 interface ProductProps {
   data: DataProducts[]
@@ -14,6 +15,7 @@ interface ProductProps {
 function Products(props: ProductProps) {
 
   const { data } = props;
+  const router = useRouter();
 
   return (
     <section className="md:py-7">
@@ -58,9 +60,10 @@ function Products(props: ProductProps) {
             {data.map(product => (
               <SwiperSlide
                 key={product.id}
-                className='w-full pb-6'
+                className='w-full pb-6 overflow-hidden'
+                onClick={() => router.push(`/san-pham/${product.slug}`)}
               >
-                  <Image src={product.images[0].imageUrl} alt={product.name} width={100} height={100} className='w-full md:w-[300px]' />
+                  <Image src={product.images[0].imageUrl} alt={product.name} width={100} height={100} className='w-full md:w-[300px] cursor-pointer hover:scale-110 duration-500' />
                   <div className='py-2'>
                     <p className='text-xs font-bold text-[#f18017]'>{product.name}</p>
                     <p>{formatCurrency(product.price, 0)} đ</p>
