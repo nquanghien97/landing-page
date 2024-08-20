@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Filter from './Filter'
 
 async function Service({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
-  const { data } = await getProducts({ page: 1, pageSize: 8, orderby: searchParams.orderby }) as { data: DataProducts[] }
+  const { data } = await getProducts({ page: 1, pageSize: 10, orderby: searchParams.orderby }) as { data: DataProducts[] }
   return (
     <div className="max-w-6xl m-auto mb-4">
       <div className="py-10 flex flex-col">
