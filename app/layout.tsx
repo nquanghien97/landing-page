@@ -16,12 +16,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://unamocdon.vn/'),
-  title: 'HOSHI',
+  title: 'UNA Mộc Đơn',
   openGraph: {
     locale: 'vi_VN',
-    title: 'HOSHI',
+    title: 'UNA Mộc Đơn',
     url: 'http://unamocdon.vn/',
-    siteName: 'HOSHI',
+    siteName: 'UNA Mộc Đơn',
     type: 'website'
   },
   icons: {
