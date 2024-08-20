@@ -11,9 +11,9 @@ import Handbook from "./_component/Home/Handbook";
 import Banner from "./_component/Home/Banner";
 
 export default async function Home() {
-  const resProduct = await getProducts({ page: 1, pageSize: 5 })
-  const resFeedback = await getFeedbacks({ page: 1, pageSize: 6 })
-  const resHandbook = await getHandbooks({ page: 1, pageSize: 8 })
+  const resProduct = await getProducts({ page: 1, pageSize: 10 })
+  const resFeedback = await getFeedbacks({ page: 1, pageSize: 10 })
+  const resHandbook = await getHandbooks({ page: 1, pageSize: 10 })
 
   return (
     <>

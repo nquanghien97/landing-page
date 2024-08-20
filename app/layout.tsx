@@ -9,19 +9,18 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import Contact from './_component/Contact';
 import AppFooter from './_component/AppFooter';
-import Head from 'next/head';
 
 export const dynamic = 'force-dynamic';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.google.com/'),
+  metadataBase: new URL('http://unamocdon.vn/'),
   title: 'HOSHI',
   openGraph: {
     locale: 'vi_VN',
     title: 'HOSHI',
-    url: 'https://www.google.com',
+    url: 'http://unamocdon.vn/',
     siteName: 'HOSHI',
     type: 'website'
   },
