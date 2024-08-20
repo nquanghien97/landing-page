@@ -9,6 +9,7 @@ import StoryImage2 from '@/assets/images/story/story-2.jpg'
 import { getHandbooks } from "@/services/handbooks";
 import Handbook from "./_component/Home/Handbook";
 import Banner from "./_component/Home/Banner";
+import { listBaoChi, listTruyenHinh } from "@/config/ListImage";
 
 export default async function Home() {
   const resProduct = await getProducts({ page: 1, pageSize: 10 })
@@ -91,6 +92,42 @@ export default async function Home() {
               <div>
                 <span className="uppercase font-bold">BÁO ĐÀI ĐƯA TIN</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="py-7">
+        <div className="max-w-6xl m-auto flex flex-col">
+          <div className="mb-4">
+            <div className="flex justify-center">
+              <h1 className="flex items-center justify-between relavive w-full mb-6">
+                <b className="bg-[black] flex-1 h-[2px] opacity-10" />
+                <span className="text-center mx-4 text-3xl uppercase">Báo chí</span>
+                <b className="bg-[black] flex-1 h-[2px] opacity-10" />
+              </h1>
+            </div>
+            <div className="flex gap-6 flex-wrap justify-center">
+              {listBaoChi.map(item => (
+                <div key={item.key} className="flex justify-center items-center">
+                  <Image src={item.src} alt={item.title} width={120} height={100} className="max-w-[165px]" />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mb-4">
+            <div className="flex justify-center">
+              <h1 className="flex items-center justify-between relavive w-full mb-6">
+                <b className="bg-[black] flex-1 h-[2px] opacity-10" />
+                <span className="text-center mx-4 text-3xl uppercase">Truyền hình</span>
+                <b className="bg-[black] flex-1 h-[2px] opacity-10" />
+              </h1>
+            </div>
+            <div className="flex gap-6 flex-wrap justify-center">
+              {listTruyenHinh.map(item => (
+                <div key={item.key} className="flex justify-center items-center">
+                  <Image src={item.src} alt={item.title} width={120} height={100} className="max-w-[165px]" />
+                </div>
+              ))}
             </div>
           </div>
         </div>

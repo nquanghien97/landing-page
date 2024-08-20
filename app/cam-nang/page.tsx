@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Pagination from '../_component/Pagination'
 import RightSidebar from '../_component/RightSidebar'
 import Link from 'next/link'
+import NavLink from '../_component/NavLink'
 
 async function CamNang({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
@@ -13,7 +14,7 @@ async function CamNang({ searchParams }: { searchParams: { [key: string]: string
       <div className="py-10 flex flex-col md:flex-row">
         <div className="px-4 border-r-[1px] border-[#ccc] md:max-w-[75%] md:basis-3/4 w-full flex flex-col gap-4 my-4 md:m-0">
           {data.data.map(handbook => (
-            <Link href={`/cam-nang/${handbook.slug}`} key={handbook.id} className="flex group cursor-pointer flex-col md:flex-row">
+            <NavLink href={`/cam-nang/${handbook.slug}`} key={handbook.id} className="flex group cursor-pointer flex-col md:flex-row">
               <div className="md:w-2/5 w-full">
                 <Image src={handbook.imageUrl} alt={handbook.title} width={100} height={100} className="md:w-[300px] w-full" />
               </div>
@@ -25,7 +26,7 @@ async function CamNang({ searchParams }: { searchParams: { [key: string]: string
                   <span className="font-bold">[...]</span>
                 </div>
               </div>
-            </Link>
+            </NavLink>
           ))}
           <div className="md:mt-4">
             <Pagination total={Math.ceil(data.paging.total / data.paging.pageSize)} initialPage={searchParams.page ? +searchParams.page - 1 : 0} />

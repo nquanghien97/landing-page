@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { formatCurrency } from '@/utils/currency';
 import { useRouter } from 'next/navigation';
+import NavLink from '../NavLink';
 
 interface ProductProps {
   data: DataProducts[]
@@ -54,22 +55,23 @@ function Products(props: ProductProps) {
                 spaceBetween: 60,
               },
             }}
-            modules={[Navigation, Pagination]}  
+            modules={[Navigation, Pagination]}
             className='flex justify-center'
           >
             {data.map(product => (
               <SwiperSlide
                 key={product.id}
-                className='w-full pb-6'
-                onClick={() => router.push(`/san-pham/${product.slug}`)}
+                className='w-full pb-6 cursor-pointer group'
               >
+                <NavLink href={`/san-pham/${product.slug}`}>
                   <div className="overflow-hidden">
-                    <Image src={product.images[0].imageUrl} alt={product.name} width={100} height={100} className='w-full md:w-[300px] cursor-pointer hover:scale-110 duration-500' />
+                    <Image src={product.images[0].imageUrl} alt={product.name} width={100} height={100} className='w-full md:w-[300px] group-hover:scale-110 duration-500' />
                   </div>
                   <div className='py-2'>
                     <p className='text-xs font-bold text-[#f18017]'>{product.name}</p>
                     <p>{formatCurrency(product.price, 0)} đ</p>
                   </div>
+                </NavLink>
               </SwiperSlide>
             ))}
           </Swiper>

@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import NavLink from '../_component/NavLink';
 
 function CartPage() {
 
@@ -97,13 +98,13 @@ function CartPage() {
                   <p>{formatCurrency(getTotalPrice(), 0)} đ</p>
                 </div>
                 <div className="my-4 w-full">
-                  <Link href="/thanh-toan">
+                  <NavLink href="/thanh-toan">
                     <span
                       className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-4 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white"
                     >
                       Tiến hành thanh toán
                     </span>
-                  </Link>
+                  </NavLink>
                 </div>
               </div>
             </div>

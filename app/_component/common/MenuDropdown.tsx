@@ -9,6 +9,7 @@ import { useOutsideClick } from '../../../hooks/useOutsideClick';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import Link from 'next/link';
+import NavLink from '../NavLink';
 
 interface MenuDropdownProps {
   title: string;
@@ -77,9 +78,9 @@ function MenuDropdown(props: MenuDropdownProps) {
         onHoverEnd={offHover}
         onClick={toggleClick}
       >
-        <Link href={path} className={`cursor-pointer md:leading-[56px] after:content-['\\25be'] flex items-center ${key.includes(`.$${pathname}`) ? 'text-[#ff9900]' : ''}`}>
+        <NavLink href={path} className={`cursor-pointer md:leading-[56px] after:content-['\\25be'] flex items-center ${key.includes(`.$${pathname}`) ? 'text-[#ff9900]' : ''}`}>
           {title}
-        </Link>
+        </NavLink>
         <motion.div
           className="absolute top-14 z-[100] w-full"
           initial="exit"

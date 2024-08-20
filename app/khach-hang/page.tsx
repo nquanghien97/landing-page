@@ -4,6 +4,7 @@ import RightSidebar from '../_component/RightSidebar'
 import { getFeedbacks } from '@/services/feedbacks'
 import { FeedbackEntity } from '@/entities/Feedback'
 import Link from 'next/link'
+import NavLink from '../_component/NavLink'
 
 async function KhachHang({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
@@ -14,7 +15,7 @@ async function KhachHang({ searchParams }: { searchParams: { [key: string]: stri
       <div className="py-10 flex flex-col md:flex-row">
         <div className="px-4 border-r-[1px] border-[#ccc] md:max-w-[75%] md:basis-3/4 w-full flex flex-col gap-4 my-4 md:m-0">
           {dataFeedback.data.map(feedback => (
-            <Link key={feedback.id} className="flex group cursor-pointer flex-col md:flex-row" href={`/khach-hang/${feedback.slug}`}>
+            <NavLink key={feedback.id} className="flex group cursor-pointer flex-col md:flex-row" href={`/khach-hang/${feedback.slug}`}>
               <div className="md:w-2/5 w-full">
                 <Image src={feedback.imageUrl} alt={feedback.title} width={100} height={100} className=" w-full" />
               </div>
@@ -25,7 +26,7 @@ async function KhachHang({ searchParams }: { searchParams: { [key: string]: stri
                   <span className="font-bold">[...]</span>
                 </div>
               </div>
-            </Link>
+            </NavLink>
           ))}
           <div className="md:mt-4">
             <Pagination total={Math.ceil(dataFeedback.paging.total / dataFeedback.paging.pageSize)} initialPage={searchParams.page ? +searchParams.page - 1 : 0} />

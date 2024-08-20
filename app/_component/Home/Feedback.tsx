@@ -7,6 +7,7 @@ import PlayIcon from "@/assets/icons/PlayIcon";
 import { FeedbackData } from "@/entities/Feedback";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
+import NavLink from "../NavLink";
 
 interface FeedbackProps {
   listFeedback: FeedbackData[]
@@ -66,9 +67,9 @@ export default function Feedback(props: FeedbackProps) {
           </Swiper>
         </div>
         <div className="my-4 flex justify-center">
-          <Link href="/khach-hang">
+          <NavLink href="/khach-hang">
             <span className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white">Xem thêm</span>
-          </Link>
+          </NavLink>
         </div>
       </div>
       <Modal

@@ -9,6 +9,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import Contact from './_component/Contact';
 import AppFooter from './_component/AppFooter';
+import { HandleOnComplete } from '@/lib/router-event';
+import 'nprogress/nprogress.css';
 
 export const dynamic = 'force-dynamic';
 
@@ -46,6 +48,7 @@ export default function RootLayout({
         {children}
         <Contact />
         <AppFooter />
+        <HandleOnComplete />
       </body>
     </html>
   )

@@ -7,13 +7,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { formatCurrency } from '@/utils/currency';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import NavLink from '../NavLink';
 
 interface HandbookProps {
   data: HandbookData[]
 }
 
 function Handbook(props: HandbookProps) {
-
+  const router = useRouter();
   const { data } = props;
 
   return (
@@ -59,22 +61,26 @@ function Handbook(props: HandbookProps) {
             {data.map(handbook => (
               <SwiperSlide
                 key={handbook.id}
-              // className='md:max-w-[60%] !w-screen'
+                className="cursor-pointer group"
               >
-                  <Image src={handbook.imageUrl} alt={handbook.title} width={100} height={100} className='w-full' />
+                <NavLink href={`/cam-nang/${handbook.slug}`}>
+                  <div className="overflow-hidden">
+                    <Image src={handbook.imageUrl} alt={handbook.title} width={100} height={100} className='w-full group-hover:scale-110 duration-500' />
+                  </div>
                   <div className='py-2'>
                     <p className='text-base font-bold text-[#f18017]'>{handbook.title}</p>
-                    <div dangerouslySetInnerHTML={{ __html: handbook.content.split(' ').slice(0, 15).join(' ')}} className='font-bold text-xs content' />
+                    <div dangerouslySetInnerHTML={{ __html: handbook.content.split(' ').slice(0, 15).join(' ') }} className='font-bold text-xs content' />
                     <span>[...]</span>
                   </div>
+                </NavLink>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
         <div className="my-4 flex justify-center">
-          <Link href="/cam-nang">
+          <NavLink href="/cam-nang">
             <span className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white">Xem thêm</span>
-          </Link>
+          </NavLink>
         </div>
       </div>
     </section>
