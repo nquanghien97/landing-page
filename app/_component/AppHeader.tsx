@@ -85,8 +85,8 @@ function AppHeader() {
             </NavLink>
           </div>
           <div className='flex gap-2'>
-            <div className="flex items-center gap-2">
-              <ul className="flex items-center gap-4 max-lg:flex-col max-lg:hidden uppercase">
+            <div className="flex items-center">
+              <ul className="flex items-center gap-2 max-lg:flex-col max-lg:hidden uppercase">
                 {listHeader.map(item => (
                   <li key={item.path} className="px-3 py-1 font-bold">
                     {item.children ? (

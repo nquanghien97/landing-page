@@ -68,8 +68,8 @@ function Products(props: ProductProps) {
                     <Image src={product.images[0].imageUrl} alt={product.name} width={100} height={100} className='w-full md:w-[300px] group-hover:scale-110 duration-500' />
                   </div>
                   <div className='py-2'>
-                    <p className='text-xs font-bold text-[#f18017]'>{product.name}</p>
-                    <p>{formatCurrency(product.price, 0)} đ</p>
+                    <p className='text-base font-bold text-[#f18017] uppercase'>{product.name}</p>
+                    <p className="text-lg">{formatCurrency(product.price, 0)} đ</p>
                   </div>
                 </NavLink>
               </SwiperSlide>
