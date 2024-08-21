@@ -22,7 +22,7 @@ export async function POST(req: Request) {
         title,
         content,
         slug,
-        imageUrl: filenames[0]
+        imageUrl: `/images/handbooks/${filenames[0]}`
       }
     })
     return NextResponse.json({ newHanbook }, { status: 200 })

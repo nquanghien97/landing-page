@@ -23,7 +23,7 @@ export async function POST(req: Request) {
         title,
         content,
         slug,
-        imageUrl: filenames[0]
+        imageUrl: `/images/feedbacks/${filenames[0]}`
       }
     })
     return NextResponse.json({ newFeedback }, { status: 200 })

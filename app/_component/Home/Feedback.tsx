@@ -57,7 +57,7 @@ export default function Feedback(props: FeedbackProps) {
                 }}
                 className="w-full group cursor-pointer"
               >
-                <Image src={feedback.imageUrl} alt={feedback.imageUrl} width={100} height={100} className="w-full" />
+                <Image src={feedback.imageUrl} alt={feedback.imageUrl} width={100} height={100} className="w-full" layout="responsive" />
                 <div className="absolute inset-0 bg-black opacity-40 w-full" />
                 <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 duration-300 border-2 border-white rounded-full cursor-pointer">
                   <PlayIcon />
