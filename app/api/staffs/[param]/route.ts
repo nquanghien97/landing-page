@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function PUT(req: Request, { params }: { params: { param: number } }) {
   const { param } = params;
-  const { name, bankName, identifier, imageUrl, type, bankNumber } = await req.json();
+  const { name, bankName, identifier, type, bankNumber } = await req.json();
 
   try {
     if (!param) {
@@ -23,7 +23,6 @@ export async function PUT(req: Request, { params }: { params: { param: number } 
           identifier: identifier ?? null,
           bankName: bankName ?? null,
           bankNumber: bankNumber ?? null,
-          imageUrl: imageUrl ?? null,
           type
         },
       });

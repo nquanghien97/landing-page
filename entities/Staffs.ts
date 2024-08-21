@@ -9,7 +9,6 @@ export interface StaffEntity {
     id: number;
     name: string;
     identifier?: number;
-    imageUrl?: string;
     bankName?: string;
     bankNumber?: number;
     type: 'BANK' | 'IDENTIFIER'
