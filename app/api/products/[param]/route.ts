@@ -81,6 +81,9 @@ export async function PUT(req: Request, { params }: { params: { param: number } 
       { status: 200 }
     );
   } catch (err) {
+    if (filenames.length > 0) {
+      await Promise.all(filenames.map((filename) => deleteFile(filename, "products")));
+    }
     if (err instanceof Error) {
       return NextResponse.json({ message: err.message }, { status: 500 });
     } else {

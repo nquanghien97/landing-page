@@ -5,7 +5,7 @@ import { File } from 'formdata-node';
 import { deleteFile, uploadFile } from "@/utils/fileUpload";
 
 export async function POST(req: Request) {
-  let filenames: string[] = []; // Định nghĩa filenames bên ngoài try-catch
+  let filenames: string[] = [];
 
   try {
     const formData = await req.formData();
