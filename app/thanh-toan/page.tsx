@@ -53,7 +53,7 @@ function ChekOut() {
   }
 
   useEffect(() => {
-    if(products.length === 0) {
+    if (products.length === 0) {
       router.push('/gio-hang');
     }
   }, [products.length, router])
@@ -100,38 +100,38 @@ function ChekOut() {
             <div>
               <h2 className="text-2xl font-bold">Đơn hàng của bạn</h2>
             </div>
-            <table>
-            <thead>
-              <tr className="flex border-b-2">
-                <th className="max-w-[70%] lg:max-w-[40%] basis-[70%] lg:basis-2/5 text-start">Sản phẩm</th>
-                <th className="max-w-[40%] basis-2/5 mx-2 text-end">Tạm tính</th>
-              </tr>
-            </thead>
-            <tbody>
-              {products.length === 0 ? (
-                <tr>
-                  <td colSpan={4} className="text-2xl">Chưa có sản phẩm nào trong giỏ hàng</td>
+            <table className="w-full">
+              <thead>
+                <tr className="flex border-b-2">
+                  <th className="max-w-[70%] lg:max-w-[40%] basis-[70%] lg:basis-2/5 text-start">Sản phẩm</th>
+                  <th className="max-w-[40%] basis-2/5 mx-2 text-end">Tạm tính</th>
                 </tr>
-              ) : (
-                products.map(product => (
-                  <tr key={product.id} className="flex py-2">
-                    <td className="max-w-[60%] lg:max-w-[40%] basis-[60%] lg:basis-2/5 font-bold flex justify-start !px-0">
-                      <div className="flex flex-col">
-                        <span className="flex-1 text-base">{product.name} x {product.quantity}</span>
-                      </div>
-                    </td>
-                    <td className="max-w-[40%] basis-[40%] mx-2 font-bold text-end">{formatCurrency(product.price * product.quantity, 0)} đ</td>
+              </thead>
+              <tbody>
+                {products.length === 0 ? (
+                  <tr>
+                    <td colSpan={4} className="text-2xl">Chưa có sản phẩm nào trong giỏ hàng</td>
                   </tr>
-                ))
-              )}
-            </tbody>
-            <tfoot>
-              <tr className="flex py-1 border-t-2">
-                <td className="max-w-[60%] lg:max-w-[40%] basis-[60%] lg:basis-2/5 font-bold flex justify-start !px-0">Tạm tính</td>
-                <td className="max-w-[40%] basis-[40%] mx-2 font-bold text-end">{formatCurrency(getTotalPrice(), 0)} đ</td>
-              </tr>
-            </tfoot>
-          </table>
+                ) : (
+                  products.map(product => (
+                    <tr key={product.id} className="flex py-2">
+                      <td className="max-w-[60%] lg:max-w-[40%] basis-[60%] lg:basis-2/5 font-bold flex justify-start !px-0">
+                        <div className="flex flex-col">
+                          <span className="flex-1 text-base">{product.name} x {product.quantity}</span>
+                        </div>
+                      </td>
+                      <td className="max-w-[40%] basis-[40%] mx-2 font-bold text-end">{formatCurrency(product.price * product.quantity, 0)} đ</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+              <tfoot>
+                <tr className="flex py-1 border-t-2">
+                  <td className="max-w-[60%] lg:max-w-[40%] basis-[60%] lg:basis-2/5 font-bold flex justify-start !px-0">Tạm tính</td>
+                  <td className="max-w-[40%] basis-[40%] mx-2 font-bold text-end">{formatCurrency(getTotalPrice(), 0)} đ</td>
+                </tr>
+              </tfoot>
+            </table>
             <div className="my-4 w-full">
               <button type='submit' className="w-full cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white">Đặt hàng ngay</button>
             </div>

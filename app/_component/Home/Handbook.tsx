@@ -65,7 +65,7 @@ function Handbook(props: HandbookProps) {
               >
                 <NavLink href={`/cam-nang/${handbook.slug}`}>
                   <div className="overflow-hidden">
-                    <Image src={handbook.imageUrl} alt={handbook.title} width={100} height={100} className='w-full group-hover:scale-110 duration-500' layout="responsive" />
+                    <Image src={handbook.imageUrl} alt={handbook.title} width={1024} height={716} className='w-full group-hover:scale-110 duration-500' />
                   </div>
                   <div className='py-2'>
                     <p className='text-base font-bold text-[#f18017]'>{handbook.title}</p>
