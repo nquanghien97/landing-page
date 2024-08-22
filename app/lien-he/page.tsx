@@ -18,7 +18,7 @@ async function LienHe({ searchParams }: { searchParams: { [key: string]: string 
                 <h1 className="text-3xl md:text-6xl uppercase font-bold">Xác thực thông tin nhân viên</h1>
               </div>
               <div className="mb-4">
-                <p className="text-xl md:text-3xl font-bold">Hãy chắc chắn rằng bạn đang được hỗ trợ từ nhân viên được ủy quyền bởi HOSHI chính hãng</p>
+                <p className="text-xl md:text-3xl font-bold">Hãy chắc chắn rằng bạn đang được hỗ trợ từ nhân viên được ủy quyền bởi UNA Mộc Đơn chính hãng</p>
               </div>
               <div className="mb-4 border-2 p-2 bg-white rounded-md">
                 <p className="text-sm md:text-xl text-blue-700 font-bold">Vui lòng nhập số điện thoại hoặc số tài khoản ngân hàng để xác thực nhân viên</p>

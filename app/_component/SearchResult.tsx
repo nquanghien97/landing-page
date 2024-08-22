@@ -25,7 +25,7 @@ function SearchResult(props: SearchResultProps) {
               setOpenDataSearch(false)
             }}
           >
-            <Image src={product.images[0].imageUrl} alt={product.name} width={100} height={100} className="w-[80px]" />
+            <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={100} height={100} className="w-[80px]" />
             <div className="max-w-[70%] basis-[70%]">
               <h3 className="text-sm mx-2">{product.name}</h3>
             </div>

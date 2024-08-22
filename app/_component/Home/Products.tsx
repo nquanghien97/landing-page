@@ -65,7 +65,7 @@ function Products(props: ProductProps) {
               >
                 <NavLink href={`/san-pham/${product.slug}`}>
                   <div className="overflow-hidden">
-                    <Image src={product.images[0].imageUrl} alt={product.name} width={1024} height={716} className='w-full md:w-[300px] group-hover:scale-110 duration-500' />
+                    <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={1024} height={716} className='w-full md:w-[300px] group-hover:scale-110 duration-500' />
                   </div>
                   <div className='py-2'>
                     <p className='text-base font-bold text-[#f18017] uppercase'>{product.name}</p>

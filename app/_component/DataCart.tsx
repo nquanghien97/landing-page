@@ -34,7 +34,7 @@ function DataCart(props: DataCartProps) {
           {products.map(product => (
             <div key={product.id} className="flex">
               <div className="max-w-[40%] w-full pr-4">
-                <Image src={product.images[0].imageUrl} alt={product.name} width={100} height={100} className="w-full" />
+                <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={100} height={100} className="w-full" />
               </div>
               <div className="max-w-[60%] text-xs text-black flex flex-col">
                 <p className="text-[#f18017] font-bold">{product.name}</p>
