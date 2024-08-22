@@ -78,9 +78,9 @@ function MenuDropdown(props: MenuDropdownProps) {
         onHoverEnd={offHover}
         onClick={toggleClick}
       >
-        <NavLink href={path} className={`cursor-pointer md:leading-[56px] after:content-['\\25be'] flex items-center ${key.includes(`.$${pathname}`) ? 'text-[#ff9900]' : ''}`}>
+        <Link href={path} className={`cursor-pointer md:leading-[56px] after:content-['\\25be'] flex items-center ${key.includes(`.$${pathname}`) ? 'text-[#ff9900]' : ''}`}>
           {title}
-        </NavLink>
+        </Link>
         <motion.div
           className="absolute top-14 z-[100] w-full"
           initial="exit"

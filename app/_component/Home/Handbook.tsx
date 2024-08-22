@@ -63,7 +63,7 @@ function Handbook(props: HandbookProps) {
                 key={handbook.id}
                 className="cursor-pointer group"
               >
-                <NavLink href={`/cam-nang/${handbook.slug}`}>
+                <Link href={`/cam-nang/${handbook.slug}`}>
                   <div className="overflow-hidden">
                     <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={1024} height={716} className='w-full group-hover:scale-110 duration-500' />
                   </div>
@@ -72,15 +72,15 @@ function Handbook(props: HandbookProps) {
                     <div dangerouslySetInnerHTML={{ __html: handbook.content.split(' ').slice(0, 15).join(' ') }} className='font-bold text-xs content' />
                     <span>[...]</span>
                   </div>
-                </NavLink>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
         <div className="my-4 flex justify-center">
-          <NavLink href="/cam-nang">
+          <Link href="/cam-nang">
             <span className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white">Xem thêm</span>
-          </NavLink>
+          </Link>
         </div>
       </div>
     </section>

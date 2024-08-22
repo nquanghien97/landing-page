@@ -19,7 +19,7 @@ import { DataProducts, ProductEntity } from '@/entities/Products';
 import { getProducts } from '@/services/products';
 import SearchResult from './SearchResult';
 import LoadingIcon from '@/assets/icons/LoadingIcon';
-import NavLink from './NavLink';
+// import NavLink from './NavLink';
 
 function AppHeader() {
 
@@ -80,9 +80,9 @@ function AppHeader() {
       <div className={`h-[70px] fixed inset-x-0 top-0 px-4 duration-300 z-50 bg-[#3e7c30] text-white`}>
         <div className="max-w-6xl m-auto flex items-center justify-between h-full">
           <div className="px-2 max-lg:flex-1">
-            <NavLink href="/" className="max-lg:w-full max-lg:text-center flex justify-center">
+            <Link href="/" className="max-lg:w-full max-lg:text-center flex justify-center">
               <Image src="/logo.png" alt="logo" width={100} height={100} className="cursor-pointer" />
-            </NavLink>
+            </Link>
           </div>
           <div className='flex gap-2'>
             <div className="flex items-center">
@@ -98,17 +98,17 @@ function AppHeader() {
                         <ul className="bg-[#3e7c30] flex flex-col min-w-[15rem] border border-[#ffffff12] rounded-lg lg:py-2 text-white">
                           {item.children.map(childItem => (
                             <li key={childItem.path}>
-                              <NavLink className={`cursor-pointer hover:text-[#f18017] px-4 py-2 w-full flex items-center`} href={childItem.path}>
+                              <Link className={`cursor-pointer hover:text-[#f18017] px-4 py-2 w-full flex items-center`} href={childItem.path}>
                                 {childItem.title}
-                              </NavLink>
+                              </Link>
                             </li>
                           ))}
                         </ul>
                       </MenuDropdown>
                     ) : (
-                      <NavLink key={item.key} href={item.path} className={`hover:text-[#f18017] duration-300 ${pathname === item.path ? 'text-[#f18017]' : ''}`}>
+                      <Link key={item.key} href={item.path} className={`hover:text-[#f18017] duration-300 ${pathname === item.path ? 'text-[#f18017]' : ''}`}>
                         {item.title}
-                      </NavLink>
+                      </Link>
                     )}
                   </li>
                 ))}
@@ -153,17 +153,17 @@ function AppHeader() {
                           <ul className="bg-[#0f0f10] flex flex-col min-w-[15rem] border border-[#ffffff12] rounded-lg lg:py-2">
                             {item.children.map(childItem => (
                               <li key={childItem.path}>
-                                <NavLink className={`cursor-pointer hover:text-[#f18017] px-4 py-2 w-full flex items-center`} href={childItem.path}>
+                                <Link className={`cursor-pointer hover:text-[#f18017] px-4 py-2 w-full flex items-center`} href={childItem.path}>
                                   {childItem.title}
-                                </NavLink>
+                                </Link>
                               </li>
                             ))}
                           </ul>
                         </MenuDropdown>
                       ) : (
-                        <NavLink href={item.path} className={`hover:text-[#f18017] duration-300 ${pathname === item.path ? 'text-[#f18017]' : ''}`}>
+                        <Link href={item.path} className={`hover:text-[#f18017] duration-300 ${pathname === item.path ? 'text-[#f18017]' : ''}`}>
                           {item.title}
-                        </NavLink>
+                        </Link>
                       )}
                     </li>
                   ))}

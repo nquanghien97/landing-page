@@ -8,6 +8,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import { formatCurrency } from '@/utils/currency';
 import { useRouter } from 'next/navigation';
 import NavLink from '../NavLink';
+import Link from 'next/link';
 
 interface ProductProps {
   data: DataProducts[]
@@ -63,7 +64,7 @@ function Products(props: ProductProps) {
                 key={product.id}
                 className='w-full pb-6 cursor-pointer group'
               >
-                <NavLink href={`/san-pham/${product.slug}`}>
+                <Link href={`/san-pham/${product.slug}`}>
                   <div className="overflow-hidden">
                     <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={1024} height={716} className='w-full md:w-[300px] group-hover:scale-110 duration-500' />
                   </div>
@@ -71,7 +72,7 @@ function Products(props: ProductProps) {
                     <p className='text-base font-bold text-[#f18017] uppercase'>{product.name}</p>
                     <p className="text-lg">{formatCurrency(product.price, 0)} đ</p>
                   </div>
-                </NavLink>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>

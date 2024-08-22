@@ -5,7 +5,7 @@ import { useProductsStore } from '@/zustand/products';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import NavLink from './NavLink';
+// import NavLink from './NavLink';
 
 interface DataCart extends DataProducts {
   quantity: number
@@ -61,13 +61,13 @@ function DataCart(props: DataCartProps) {
           </span>
         </div>
         <div className="flex w-full my-2">
-          <NavLink href='/thanh-toan' className="w-full">
+          <Link href='/thanh-toan' className="w-full">
             <p
               className="w-full text-center cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white"
             >
               Thanh toán
             </p>
-          </NavLink>
+          </Link>
         </div>
       </div>
         </>

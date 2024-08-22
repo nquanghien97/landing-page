@@ -15,7 +15,7 @@ async function KhachHang({ searchParams }: { searchParams: { [key: string]: stri
       <div className="py-10 flex flex-col md:flex-row">
         <div className="px-4 border-r-[1px] border-[#ccc] md:max-w-[75%] md:basis-3/4 w-full flex flex-col gap-4 my-4 md:m-0">
           {dataFeedback.data.map(feedback => (
-            <NavLink key={feedback.id} className="flex group cursor-pointer flex-col md:flex-row" href={`/khach-hang/${feedback.slug}`}>
+            <Link key={feedback.id} className="flex group cursor-pointer flex-col md:flex-row" href={`/khach-hang/${feedback.slug}`}>
               <div className="md:w-2/5 w-full">
                 <Image src={`/api${feedback.imageUrl}`} alt={feedback.title} width={1024} height={1024} className=" w-full" />
               </div>
@@ -26,7 +26,7 @@ async function KhachHang({ searchParams }: { searchParams: { [key: string]: stri
                   <span className="font-bold">[...]</span>
                 </div>
               </div>
-            </NavLink>
+            </Link>
           ))}
           <div className="md:mt-4">
             <Pagination total={Math.ceil(dataFeedback.paging.total / dataFeedback.paging.pageSize)} initialPage={searchParams.page ? +searchParams.page - 1 : 0} />

@@ -67,9 +67,9 @@ export default function Feedback(props: FeedbackProps) {
           </Swiper>
         </div>
         <div className="my-4 flex justify-center">
-          <NavLink href="/khach-hang">
+          <Link href="/khach-hang">
             <span className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 text-[#f18017] border-2 border-[#f18017] font-bold rounded-md hover:bg-[#f18017] hover:text-white">Xem thêm</span>
-          </NavLink>
+          </Link>
         </div>
       </div>
       <Modal
