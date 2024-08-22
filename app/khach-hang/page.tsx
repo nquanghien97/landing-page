@@ -8,7 +8,7 @@ import NavLink from '../_component/NavLink'
 
 async function KhachHang({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
-  const dataFeedback: FeedbackEntity = await getFeedbacks({ page: searchParams.page ? +searchParams.page : 1, pageSize: 5 })
+  const dataFeedback: FeedbackEntity = await getFeedbacks({ page: searchParams.page ? +searchParams.page : 1, pageSize: 4 })
 
   return (
     <div className="max-w-6xl m-auto mb-4">
@@ -17,7 +17,7 @@ async function KhachHang({ searchParams }: { searchParams: { [key: string]: stri
           {dataFeedback.data.map(feedback => (
             <Link key={feedback.id} className="flex group cursor-pointer flex-col md:flex-row" href={`/khach-hang/${feedback.slug}`}>
               <div className="md:w-2/5 w-full">
-                <Image src={`/api${feedback.imageUrl}`} alt={feedback.title} width={1024} height={1024} className=" w-full" />
+                <Image src={`/api${feedback.imageUrl}`} alt={feedback.title} width={1024} height={1024} className=" w-full" unoptimized />
               </div>
               <div className="flex flex-col justify-center md:px-4 py-4 md:w-3/5">
                 <p>{feedback.title}</p>

@@ -6,7 +6,7 @@ export async function GET(
   request: NextRequest,
   { params }: { params: { path: string[] } }
 ) {
-  const imagePath = path.join(process.cwd(), 'public', 'images', ...params.path);
+  const imagePath = path.join(process.cwd(), 'images', ...params.path);
 
   if (fs.existsSync(imagePath)) {
     const imageBuffer = await fs.promises.readFile(imagePath);
