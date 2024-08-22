@@ -30,7 +30,7 @@ function LienHe(props: ImageDetailsProductProps) {
         >
           {data.map(item => (
             <SwiperSlide key={item.id}>
-              <Image src={item.imageUrl} alt={item.title || ''} width={1024} height={1024} className="w-full" />
+              <Image src={`/api${item.imageUrl}`} alt={item.title || ''} width={1024} height={1024} className="w-full" />
             </SwiperSlide>
           ))}
         </Swiper>

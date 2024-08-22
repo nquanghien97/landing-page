@@ -37,7 +37,7 @@ async function ProductDetails({ params }: { params: { slug: string } }) {
               {dataHanbooks.map(handbook => (
                 <li key={handbook.id} className="flex gap-2 cursor-pointer py-1 border-b-[1px] border-[#ccc]">
                   <div className="py-2">
-                    <Image src={handbook.imageUrl} alt={handbook.title} width={100} height={100} className="w-[40px]" />
+                    <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={100} height={100} className="w-[40px]" />
                   </div>
                   <div className="w-full">
                     <p className="text-sm font-bold text-[#f18017]">{handbook.title}</p>

@@ -30,7 +30,7 @@ async function RightSidebar() {
             {dataHandbooks.data.map(handbook => (
               <li key={handbook.id} className="flex gap-2 cursor-pointer py-1 border-b-[1px] border-[#ccc]">
                 <div className="py-2">
-                  <Image src={handbook.imageUrl} alt={handbook.title} width={100} height={100} className="w-[80px]" />
+                  <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={100} height={100} className="w-[80px]" />
                 </div>
                 <div className="w-full flex items-center">
                   <p className="text-sm font-bold text-[#f18017]">{handbook.title}</p>
@@ -50,7 +50,7 @@ async function RightSidebar() {
             {dataProducts.data.map(product => (
               <li key={product.id} className="flex gap-2 cursor-pointer py-1 border-b-[1px] border-[#ccc]">
                 <div className="py-2">
-                  <Image src={product.images[0].imageUrl} alt={product.name} width={100} height={100} className="w-[80px]" />
+                  <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={100} height={100} className="w-[80px]" />
                 </div>
                 <div className="w-full flex justify-center flex-col">
                   <p className="text-sm font-bold text-[#f18017]">{product.name}</p>

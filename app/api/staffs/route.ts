@@ -2,7 +2,7 @@ import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-  const { name, imageUrl, identifier, bankName, bankNumber, type } = await req.json();
+  const { name, identifier, bankName, bankNumber, type } = await req.json();
   try {
     const newStaff = await prisma.staff.create({
       data: {
@@ -11,7 +11,6 @@ export async function POST(req: Request) {
         bankName: bankName ?? null,
         bankNumber: bankNumber ?? null,
         type,
-        imageUrl
       }
     })
     return NextResponse.json({ newStaff }, { status: 200 })

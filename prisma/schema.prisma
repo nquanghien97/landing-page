@@ -60,7 +60,6 @@ model Staff {
   id Int @id @default(autoincrement())
   name  String
   identifier String?
-  imageUrl String? @db.LongText
   bankNumber String?
   bankName String?
   type Type @default(IDENTIFIER)
