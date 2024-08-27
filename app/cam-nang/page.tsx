@@ -17,7 +17,7 @@ async function CamNang({ searchParams }: { searchParams: { [key: string]: string
           {data.data.map(handbook => (
             <Link href={`/cam-nang/${handbook.slug}`} key={handbook.id} className="flex group cursor-pointer flex-col md:flex-row">
               <div className="md:w-2/5 w-full">
-                <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={100} height={100} className="md:w-[300px] w-full" unoptimized />
+                <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={1000} height={1000} className="md:w-[300px] w-full" />
               </div>
               <div className="flex flex-col justify-center md:px-4 py-4">
                 <p>{handbook.title}</p>
