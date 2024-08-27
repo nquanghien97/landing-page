@@ -29,22 +29,22 @@ export default async function Home() {
           </div>
           <div className="flex-1 bg-[#f18017] flex items-center justify-center flex-col">
             <div className="w-5/6 text-white">
-              <h2 className="text-4xl py-4">HOSHI – CÂU CHUYỆN THÀNH CÔNG</h2>
-              <p className="font-bold">Làn da thâm sạm với những đốm nâu, tàn nhang, đồi mồi… đã và đang khiến hàng triệu triệu phụ nữ trên toàn thế giới tự ti và mặc cảm với cuộc sống. Do đó, với mong muốn xây dựng sản phẩm đi từ căn nguyên gốc rễ gây ra tình trạng nám, chúng tôi tạo ra một combo tác động toàn diện cả nguyên nhân bên trong lẫn bên ngoài – khác biệt hoàn toàn so với các dòng sản phẩm trị nám trắng da trên thị trường, giúp chị em lấy lại nét tươi trẻ, tự tin, rạng ngời vốn có.</p>
-              <div className="my-4 flex justify-center">
+              <h2 className="text-4xl py-4">UNA Mộc Đơn – CÂU CHUYỆN THÀNH CÔNG</h2>
+              <p className="font-bold">Theo thống kê trên tổng dân số nữ của thế giới, có khoảng 70 – 80% dân số nữ sẽ mắc phải một những căn bệnh U XƠ, U NANG hay U LÀNH TÍNH. Do đó, với mong muốn chăm sóc sức khỏe và nâng cao chất lượng cuộc sống của phụ nữ trên toàn thế giới, chúng tôi đã tạo ra bộ sản phẩm MỘC ĐƠN với cơ chế độc quyền: TRIỆT CHÂN U. Cơ chế này tác động trực tiếp vào chân U, đánh bật gốc rễ khối u và hoàn toàn không lo khối u mọc lại. Đây là điểm khác biệt của MỘC ĐƠN với các sản phẩm thông thường khác trên thị trường.</p>
+              {/* <div className="my-4 flex justify-center">
                 <span className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 bg-white text-black font-bold rounded-md">Xem thêm</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
         <div className="flex flex-col md:flex-row">
           <div className="flex-1 bg-[#f18017] flex items-center justify-center flex-col">
             <div className="w-5/6 text-white">
-              <h2 className="text-4xl py-4">CỘNG ĐỒNG HOSHI</h2>
-              <p className="font-bold">Không chỉ phủ mạnh thị trường trong nước, Hoshi đã và đang vươn mình vượt biên giới, trở thành cơn sốt ở nhiều quốc gia tại một số châu lục như Châu Âu, Châu Á… Hoshi đang từng bước gây dựng nên một cộng đồng làm đẹp văn minh, an toàn và hiệu quả…</p>
-              <div className="my-4 flex justify-center">
+              <h2 className="text-4xl py-4">CỘNG ĐỒNG UNA Mộc Đơn</h2>
+              <p className="font-bold">Không chỉ phủ mạnh thị trường trong nước, MỘC ĐƠN đã, đang và sẽ tiếp tục vươn mình mạnh mẽ ra thị trường quốc tế, nhận được nhiều sự yêu mến và tin dùng của phụ nữ trên nhiều quốc gia ở Châu Âu, Châu Á. MỘC ĐƠN đang từng bước gây dựng nên một cộng đồng chăm sóc sức khỏe phụ nữ văn minh, an toàn và hiệu quả.</p>
+              {/* <div className="my-4 flex justify-center">
                 <span className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 bg-white text-black font-bold rounded-md">Xem thêm</span>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="flex-1 overflow-hidden">

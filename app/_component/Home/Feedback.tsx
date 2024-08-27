@@ -26,7 +26,7 @@ export default function Feedback(props: FeedbackProps) {
           <h2 className="text-4xl uppercase text-[#f18017]">Cảm nhận khách hàng</h2>
         </div>
         <div className="text-center mb-4">
-          <p className="font-bold">Hàng triệu khách hàng đã trải nghiệm và hài lòng. Hoshi tự hào khi trở thành “người bạn” đồng hành đáng tin cậy của các chị em trên hành trình lấy lại làn da trắng mịn, hồng hào và tươi trẻ.</p>
+          <p className="font-bold">Với sứ mệnh chăm sóc sức khỏe và nâng cao chất lượng cuộc sống, Mộc Đơn đã, đang và sẽ luôn là người bạn đồng hành đáng tin cậy, giúp chị em phụ nữ vượt qua nỗi lo về U XƠ, U NANG, U LÀNH TÍNH và sống trọn vẹn hơn mỗi ngày. Hàng triệu chị em phụ nữ đã trải nghiệm và hài lòng.</p>
         </div>
         <div className='overflow-hidden'>
           <Swiper

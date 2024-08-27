@@ -22,7 +22,7 @@ function Products() {
           <b className="bg-[black] flex-1 h-[2px] opacity-10" />
         </h1>
         <div className="text-center mb-4">
-          <p className="font-bold">Combo Hoshi công nghệ độc quyền Nhật Bản tạo ra một quy trình chăm sóc da chuyên sâu tác động cả trong lẫn ngoài, cải thiện tình trạng nám toàn diện.</p>
+          <p className="font-bold">MỘC ĐƠN là kết quả của hành trình tìm kiếm và phát triển từ các thảo dược tự nhiên quý hiếm, được kết hợp bởi những tinh hoa của Y Học Cổ Truyền và Công Nghệ Hiện Đại. Mỗi viên Mộc Đơn đều mang trong mình sứ mệnh giúp phụ nữ vượt qua nỗi lo về U XƠ, U NANG, U LÀNH TÍNH, để họ có thể sống trọn vẹn hơn, tự tin hơn.</p>
         </div>
         <div className=''>
           <Swiper

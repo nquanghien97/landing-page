@@ -27,11 +27,11 @@ function Products(props: ProductProps) {
         </div>
         <h1 className="flex items-center justify-between relavive w-full mb-6">
           <b className="bg-[black] flex-1 h-[2px] opacity-10" />
-          <span className="text-center mx-4 text-3xl">HOSHI KHUYÊN DÙNG</span>
+          <span className="text-center mx-4 text-3xl">UNA Mộc Đơn KHUYÊN DÙNG</span>
           <b className="bg-[black] flex-1 h-[2px] opacity-10" />
         </h1>
         <div className="text-center mb-4">
-          <p className="font-bold">Là dòng sản phẩm cao cấp hỗ trợ chăm sóc sức khỏe làn da, HOSHI mang đến giải pháp làm đẹp an toàn và hiệu quả cho làn da phụ nữ trên toàn Thế giới.</p>
+          <p className="font-bold">Là bộ sản phẩm cao cấp điều trị U XƠ, U NANG, U LÀNH TÍNH. MỘC ĐƠN mang đến giải pháp an toàn tuyệt đối và hiệu quả vượt trội cho sức khỏe phụ nữ trên toàn Thế giới.</p>
         </div>
         <div>
           <Swiper
