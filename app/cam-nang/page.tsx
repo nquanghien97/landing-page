@@ -9,7 +9,7 @@ import ClientOnlyContent from './ClientContent'
 
 async function CamNang({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
-  const data: HandbookEntity = await getHandbooks({ page: searchParams.page ? +searchParams.page : 1, pageSize: 2 })
+  const data: HandbookEntity = await getHandbooks()
   return (
     <div className="max-w-6xl m-auto mb-4">
       <div className="py-10 flex flex-col md:flex-row">

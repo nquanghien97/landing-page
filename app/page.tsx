@@ -14,7 +14,7 @@ import { listBaoChi, listTruyenHinh } from "@/config/ListImage";
 export default async function Home() {
   const resProduct = await getProducts({ page: 1, pageSize: 10 })
   const resFeedback = await getFeedbacks({ page: 1, pageSize: 10 })
-  const resHandbook = await getHandbooks({ page: 1, pageSize: 10 })
+  const resHandbook = await getHandbooks()
 
   return (
     <>

@@ -9,7 +9,7 @@ import Image2 from "@/assets/images/right-banner/anh-doc-2.jpg";
 
 async function RightSidebar() {
   const dataProducts: ProductEntity = await getProducts({ page: 1, pageSize: 3 })
-  const dataHandbooks: HandbookEntity = await getHandbooks({ page: 1, pageSize: 3 })
+  const dataHandbooks: HandbookEntity = await getHandbooks()
   return (
     <div className="flex flex-col gap-4 w-full md:max-w-[25%] md:basis-1/4 my-4 md:m-0">
       <div className="px-4 w-full md:mb-4">

@@ -1,5 +1,5 @@
-export async function getHandbooks({ page, pageSize } : { page: number, pageSize: number }) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/handbooks?page=${page}&pageSize=${pageSize}`)
+export async function getHandbooks() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/handbooks`)
     return res.json()
 }
 
