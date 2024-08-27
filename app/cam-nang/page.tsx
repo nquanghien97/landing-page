@@ -26,9 +26,9 @@ async function CamNang({ searchParams }: { searchParams: { [key: string]: string
               </div>
             </Link>
           ))}
-          <div className="md:mt-4">
+          {/* <div className="md:mt-4">
             <Pagination total={Math.ceil(data.paging.total / data.paging.pageSize)} initialPage={searchParams.page ? +searchParams.page - 1 : 0} />
-          </div>
+          </div> */}
         </div>
         <RightSidebar />
       </div>

@@ -28,9 +28,9 @@ async function KhachHang({ searchParams }: { searchParams: { [key: string]: stri
               </div>
             </Link>
           ))}
-          <div className="md:mt-4">
+          {/* <div className="md:mt-4">
             <Pagination total={Math.ceil(dataFeedback.paging.total / dataFeedback.paging.pageSize)} initialPage={searchParams.page ? +searchParams.page - 1 : 0} />
-          </div>
+          </div> */}
         </div>
         <RightSidebar />
       </div>
