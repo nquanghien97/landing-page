@@ -26,11 +26,11 @@ function Handbook(props: HandbookProps) {
         </div>
         <h1 className="flex items-center justify-between relavive w-full mb-6">
           <b className="bg-[black] flex-1 h-[2px] opacity-10" />
-          <span className="text-center mx-4 text-3xl">Cẩm nang làm đẹp</span>
+          <span className="text-center mx-4 text-3xl">Cẩm nang chăm sóc sức khỏe</span>
           <b className="bg-[black] flex-1 h-[2px] opacity-10" />
         </h1>
         <div className="text-center mb-4">
-          <p className="font-bold">Cùng Hoshi khám phá, chia sẻ và học hỏi những phương pháp làm đẹp an toàn, khoa học và hiệu quả để làn da luôn căng tràn sức sống mọi lúc mọi nơi.</p>
+          <p className="font-bold">U xơ, U nang hay U lành tính là những tình trạng phổ biến, chúng có thể ảnh hưởng đến chất lượng cuộc sống và sức khỏe sinh sản của phụ nữ. Việc nắm rõ thông tin, duy trì lối sống lành mạnh và khám sức khỏe định kỳ sẽ giúp phụ nữ sớm phát hiện và có phương pháp điều trị kịp thời. Hãy cùng Mộc Đơn tìm hiểu những thông tin hữu ích về U xơ, U nang hay U lành tính nhé.</p>
         </div>
         <div className=''>
           <Swiper
