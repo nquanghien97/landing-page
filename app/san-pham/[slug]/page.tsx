@@ -10,7 +10,7 @@ async function ProductDetails({ params }: { params: { slug: string } }) {
 
   const { data } = await getProduct(params.slug) as { data: DataProducts }
   const { data: dataHanbooks } = await getHandbooks() as { data : HandbookData[] }
-
+  if(!data) return <div className='text-center py-4'>Không có sản phẩm phù hợp</div>
   return (
     <div className="max-w-6xl m-auto mb-4">
       <div className="py-10 border-b-[1px] border-[#ccc]">

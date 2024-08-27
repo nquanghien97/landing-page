@@ -10,6 +10,7 @@ import { getHandbooks } from "@/services/handbooks";
 import Handbook from "./_component/Home/Handbook";
 import Banner from "./_component/Home/Banner";
 import { listBaoChi, listTruyenHinh } from "@/config/ListImage";
+import Introduce from "./_component/Home/Introduce";
 
 export default async function Home() {
   const resProduct = await getProducts({ page: 1, pageSize: 10 })
@@ -53,6 +54,7 @@ export default async function Home() {
         </div>
       </section>
       <Handbook data={resHandbook.data} />
+      <Introduce />
       <section className="py-7">
         <div className="max-w-6xl m-auto flex flex-col">
           <h1 className="flex items-center justify-between relavive w-full mb-6">

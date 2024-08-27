@@ -18,7 +18,7 @@ function Products() {
         </div>
         <h1 className="flex items-center justify-between relavive w-full mb-6">
           <b className="bg-[black] flex-1 h-[2px] opacity-10" />
-          <span className="text-center mx-4 text-3xl mb-6 uppercase">Giá trị nổi bật</span>
+          <span className="text-center mx-4 text-3xl uppercase">Giá trị nổi bật</span>
           <b className="bg-[black] flex-1 h-[2px] opacity-10" />
         </h1>
         <div className="text-center mb-4">

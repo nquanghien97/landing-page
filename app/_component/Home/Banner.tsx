@@ -4,8 +4,10 @@ import Image from 'next/image';
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
-import Image1 from '@/assets/images/banner/anh-trang-gioi-thieu.jpg';
-import Image2 from '@/assets/images/banner/anh-trang-uu-dai.jpg';
+import Image1 from '@/assets/images/banner/trang-chu-1.jpg';
+import Image2 from '@/assets/images/banner/trang-chu-2.jpg';
+import Image3 from '@/assets/images/banner/anh-trang-gioi-thieu.jpg';
+import Image4 from '@/assets/images/banner/anh-trang-uu-dai.jpg';
 
 function Banner() {
 
@@ -21,13 +23,19 @@ function Banner() {
           disableOnInteraction: false,
         }}
       >
-        <SwiperSlide>
-          <Image src={Image1} alt="banner-nho-02-2048x841" width={100} height={100} className="w-full h-full" unoptimized />
+        {/* <SwiperSlide>
+          <Image src={Image1} alt="banner-nho-02-2048x841" width={1024} height={726} className="w-full h-full" unoptimized />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={Image2} alt="banner-nho-02-2048x841" width={100} height={100} className="w-full h-full" unoptimized />
+          <Image src={Image2} alt="banner-nho-02-2048x841" width={1024} height={726} className="w-full h-full" unoptimized />
+        </SwiperSlide> */}
+        <SwiperSlide>
+          <Image src={Image3} alt="banner-nho-02-2048x841" width={1024} height={726} className="w-full h-full" unoptimized />
         </SwiperSlide>
-        </Swiper>
+        <SwiperSlide>
+          <Image src={Image4} alt="banner-nho-02-2048x841" width={1024} height={726} className="w-full h-full" unoptimized />
+        </SwiperSlide>
+      </Swiper>
     </section>
   )
 }

@@ -15,7 +15,7 @@ function Contact() {
       <div>
         <div className={`flex gap-2 transition-transform duration-300 ${showButton ? 'translate-x-0' : 'translate-x-[calc(100%+40px)]'}`}>
           <div className="p-2 bg-[#fff] rounded-full hover:scale-105 duration-300">
-            <a href="tel:0123456789">
+            <a href="tel:0528643333">
               <PhoneIcon width={40} height={40} />
             </a>
           </div>

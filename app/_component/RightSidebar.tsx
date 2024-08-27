@@ -6,6 +6,7 @@ import { formatCurrency } from "@/utils/currency"
 import Image from "next/image"
 import Image1 from "@/assets/images/right-banner/anh-doc-1.jpg";
 import Image2 from "@/assets/images/right-banner/anh-doc-2.jpg";
+import Link from "next/link"
 
 async function RightSidebar() {
   const dataProducts: ProductEntity = await getProducts({ page: 1, pageSize: 3 })
@@ -28,14 +29,16 @@ async function RightSidebar() {
           <div className="bg-[#0000001a] h-[3px] max-w-[30px] md:mb-4 my-2" />
           <ul>
             {dataHandbooks.data.map(handbook => (
-              <li key={handbook.id} className="flex gap-2 cursor-pointer py-1 border-b-[1px] border-[#ccc]">
-                <div className="py-2">
-                  <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={100} height={100} className="w-[80px]" />
-                </div>
-                <div className="w-full flex items-center">
-                  <p className="text-sm font-bold text-[#f18017]">{handbook.title}</p>
-                </div>
-              </li>
+              <Link key={handbook.id} href={`/cam-nang/${handbook.slug}`}>
+                <li className="flex gap-2 cursor-pointer py-1 border-b-[1px] border-[#ccc]">
+                  <div className="py-2">
+                    <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={100} height={100} className="w-[80px]" />
+                  </div>
+                  <div className="w-full flex items-center">
+                    <p className="text-sm font-bold text-[#f18017]">{handbook.title}</p>
+                  </div>
+                </li>
+              </Link>
             ))}
           </ul>
         </div>
@@ -48,15 +51,17 @@ async function RightSidebar() {
           <div className="bg-[#0000001a] h-[3px] max-w-[30px] md:mb-4 my-2" />
           <ul>
             {dataProducts.data.map(product => (
-              <li key={product.id} className="flex gap-2 cursor-pointer py-1 border-b-[1px] border-[#ccc]">
-                <div className="py-2">
-                  <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={100} height={100} className="w-[80px]" />
-                </div>
-                <div className="w-full flex justify-center flex-col">
-                  <p className="text-sm font-bold text-[#f18017]">{product.name}</p>
-                  <p className="text-sm font-bold">{formatCurrency(product.price, 0)} đ</p>
-                </div>
-              </li>
+              <Link key={product.id} href={`/san-pham/${product.slug}`}>
+                <li className="flex gap-2 cursor-pointer py-1 border-b-[1px] border-[#ccc]">
+                  <div className="py-2">
+                    <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={100} height={100} className="w-[80px]" />
+                  </div>
+                  <div className="w-full flex justify-center flex-col">
+                    <p className="text-sm font-bold text-[#f18017]">{product.name}</p>
+                    <p className="text-sm font-bold">{formatCurrency(product.price, 0)} đ</p>
+                  </div>
+                </li>
+              </Link>
             ))}
           </ul>
         </div>

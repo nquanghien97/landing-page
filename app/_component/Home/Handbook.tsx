@@ -9,6 +9,7 @@ import { formatCurrency } from '@/utils/currency';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import NavLink from '../NavLink';
+import ClientOnlyContent from '../ClientContent';
 
 interface HandbookProps {
   data: HandbookData[]
@@ -69,8 +70,7 @@ function Handbook(props: HandbookProps) {
                   </div>
                   <div className='py-2'>
                     <p className='text-base font-bold text-[#f18017]'>{handbook.title}</p>
-                    <div dangerouslySetInnerHTML={{ __html: handbook.content.split(' ').slice(0, 15).join(' ') }} className='font-bold text-xs content' />
-                    <span>[...]</span>
+                    <ClientOnlyContent content={handbook.content} />
                   </div>
                 </Link>
               </SwiperSlide>

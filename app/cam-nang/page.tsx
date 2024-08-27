@@ -16,8 +16,12 @@ async function CamNang({ searchParams }: { searchParams: { [key: string]: string
         <div className="px-4 border-r-[1px] border-[#ccc] md:max-w-[75%] md:basis-3/4 w-full flex flex-col gap-4 my-4 md:m-0">
           {data.data.map(handbook => (
             <Link href={`/cam-nang/${handbook.slug}`} key={handbook.id} className="flex group cursor-pointer flex-col md:flex-row">
-              <div className="md:w-2/5 w-full">
+              <div className="md:w-2/5 w-full relative">
                 <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={1000} height={1000} className="md:w-[300px] w-full" />
+                <div className="absolute top-0 px-2 bg-[white] border-[#f18017] border-2 flex flex-col">
+                  <span className="text-xs font-bold text-[#f18017]">{new Date(handbook.createdAt).getDate()}</span>
+                  <span className="text-xs font-bold text-[#f18017]">th{new Date(handbook.createdAt).getMonth()}</span>
+                </div>
               </div>
               <div className="flex flex-col justify-center md:px-4 py-4">
                 <p>{handbook.title}</p>

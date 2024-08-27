@@ -65,7 +65,7 @@ export const listHeader: ListHeaderType[] = [
   },
   {
     title: 'Chính sách',
-    path: '/chinh-sach',
+    path: '#',
     key: '6'
   },
   // {
