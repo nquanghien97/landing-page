@@ -21,7 +21,6 @@ export async function uploadFile(files: File[], folderPath: string) {
 export async function deleteFile(filename: string, folderPath: string) {
   // Xóa tệp ảnh khỏi hệ thống file
   const filePath = path.join(process.cwd(), filename);
-  console.log({filePath})
   try {
     await unlink(filePath);
   } catch(err) {

@@ -5,6 +5,7 @@ import Pagination from '../_component/Pagination'
 import RightSidebar from '../_component/RightSidebar'
 import Link from 'next/link'
 import NavLink from '../_component/NavLink'
+import ClientOnlyContent from './ClientContent'
 
 async function CamNang({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
@@ -21,10 +22,7 @@ async function CamNang({ searchParams }: { searchParams: { [key: string]: string
               <div className="flex flex-col justify-center md:px-4 py-4">
                 <p>{handbook.title}</p>
                 <div className="bg-[#0000001a] h-[3px] max-w-[30px] md:mb-4 my-2" />
-                <div className="group-hover:text-[#f18017] duration-300">
-                  <div dangerouslySetInnerHTML={{ __html: handbook.content.split(' ').slice(0, 15).join(' ') }} className='font-bold text-sm content' />
-                  <span className="font-bold">[...]</span>
-                </div>
+                <ClientOnlyContent content={handbook.content} />
               </div>
             </Link>
           ))}
