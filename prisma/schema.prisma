@@ -29,15 +29,16 @@ model Tags {
 }
 
 model Product {
-  id          Int            @id @default(autoincrement())
-  name        String
-  images      ProductImage[]
-  price       Int
-  description String         @db.LongText
-  details     String         @db.LongText
-  tags        Tags[]
-  slug        String         @unique
-  createdAt   DateTime       @default(now())
+  id            Int            @id @default(autoincrement())
+  name          String
+  images        ProductImage[]
+  price         Int
+  discountPrice Int
+  description   String         @db.LongText
+  details       String         @db.LongText
+  tags          Tags[]
+  slug          String         @unique
+  createdAt     DateTime       @default(now())
 }
 
 model Handbook {
@@ -57,12 +58,12 @@ model ProductImage {
 }
 
 model Staff {
-  id Int @id @default(autoincrement())
-  name  String
+  id         Int     @id @default(autoincrement())
+  name       String
   identifier String?
   bankNumber String?
-  bankName String?
-  type Type @default(IDENTIFIER)
+  bankName   String?
+  type       Type    @default(IDENTIFIER)
 }
 
 enum Type {

@@ -20,6 +20,7 @@ export async function PUT(req: Request, { params }: { params: { param: number } 
     const formData = await req.formData();
     const name = formData.get('name') as string;
     const price = formData.get('price') as string;
+    const discountPrice = formData.get('discountPrice') as string;
     const description = formData.get('description') as string;
     const details = formData.get('details') as string;
     const files = Array.from(formData.values()).filter((value): value is File => value instanceof File);
@@ -32,6 +33,7 @@ export async function PUT(req: Request, { params }: { params: { param: number } 
           data: {
             name,
             price: +price,
+            discountPrice: +discountPrice,
             description,
             details,
             slug

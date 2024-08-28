@@ -53,7 +53,7 @@ function Products(props: ProductProps) {
               },
               1024: {
                 slidesPerView: 4,
-                spaceBetween: 60,
+                spaceBetween: 40,
               },
             }}
             modules={[Navigation, Pagination]}
@@ -66,11 +66,12 @@ function Products(props: ProductProps) {
               >
                 <Link href={`/san-pham/${product.slug}`}>
                   <div className="overflow-hidden">
-                    <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={1024} height={716} className='w-full md:w-[300px] group-hover:scale-110 duration-500' />
+                    <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={1024} height={716} className='w-full md:w-[360px] group-hover:scale-110 duration-500' />
                   </div>
                   <div className='py-2'>
                     <p className='text-base font-bold text-[#f18017] uppercase'>{product.name}</p>
-                    <p className="text-lg">{formatCurrency(product.price, 0)} đ</p>
+                    <p className="text-lg font-bold">Giá gốc: <span className="line-through">{formatCurrency(product.price, 0)} đ</span></p>
+                    <p className="text-lg font-bold">Ưu đãi hôm nay: <span className="text-[#f18017]">{formatCurrency(product.discountPrice, 0)} đ</span></p>
                   </div>
                 </Link>
               </SwiperSlide>
