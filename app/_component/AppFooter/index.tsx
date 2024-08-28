@@ -7,13 +7,12 @@ function AppFooter() {
 
   return (
     <footer>
-      <section className="py-7 bg-[#3e7c30]">
+      <section className="py-7 bg-[url('/bg-header.png')] bg-cover">
         <div className="flex max-w-6xl m-auto text-white max-md:flex-col px-4">
-          <div className="flex md:basis-2/5 flex-col md:max-w-[40%] max-md:my-2 px-4">
+          <div className="flex justify-center items-center md:basis-2/5 flex-col md:max-w-[40%] max-md:my-2 px-4">
             <Link href="/">
               <Image src="/logo.png" alt="logo" width={300} height={100} />
             </Link>
-            <p>UNA Mộc Đơn ra đời ...</p>
           </div>
           <div className="flex md:basis-[30%] flex-col md:max-w-[30%] max-md:my-2 px-4">
             <h4 className="mb-2 font-bold">HỖ TRỢ KHÁCH HÀNG</h4>

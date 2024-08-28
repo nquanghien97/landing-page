@@ -77,7 +77,7 @@ function AppHeader() {
 
   return (
     <>
-      <div className={`h-[70px] fixed inset-x-0 top-0 px-4 duration-300 z-50 bg-[#3e7c30] text-white`}>
+      <div className={`h-[70px] fixed inset-x-0 top-0 px-4 duration-300 z-50 bg-[url('/bg-header.png')] text-white`}>
         <div className="max-w-6xl m-auto flex items-center justify-between h-full">
           <div className="px-2 max-lg:flex-1">
             <Link href="/" className="max-lg:w-full max-lg:text-center flex justify-center">

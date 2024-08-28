@@ -83,3 +83,19 @@ td {
   cursor: default;
 }
 
+.animate-sparke {
+  animation: animatedBackground 10s linear infinite;
+  background-image: url('/leaf/leaf-01.png');
+  /* background-repeat: repeat; */
+  /* background-size: cover; */
+}
+
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 300px 300px, -400px -400px, -500px -500px;
+  }
+}
+
