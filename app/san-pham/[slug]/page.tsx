@@ -6,6 +6,8 @@ import { getProduct } from '@/services/products'
 import { formatCurrency } from '@/utils/currency'
 import Image from 'next/image'
 import AddCart from './AddCart'
+
+export const dynamic = 'force-dynamic'
 async function ProductDetails({ params }: { params: { slug: string } }) {
 
   const { data } = await getProduct(params.slug) as { data: DataProducts }

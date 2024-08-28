@@ -6,6 +6,8 @@ import Link from 'next/link'
 import Filter from './Filter'
 import NavLink from '../_component/NavLink'
 
+export const dynamic = 'force-dynamic'
+
 async function Service({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
   const { data } = await getProducts({ page: 1, pageSize: 10, orderby: searchParams.orderby }) as { data: DataProducts[] }
   return (

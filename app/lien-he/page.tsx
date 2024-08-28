@@ -2,7 +2,9 @@ import { getStaffs } from "@/services/staffs"
 import SubmitForm from "./SubmitForm"
 import { StaffEntity, StaffType } from "@/entities/Staffs"
 import TichXanh from "@/assets/images/tichxanh.png"
-import Image from "next/image"
+import Image from "next/image";
+
+export const dynamic = 'force-dynamic'
 
 async function LienHe({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
 

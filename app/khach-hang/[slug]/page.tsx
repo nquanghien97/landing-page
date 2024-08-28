@@ -6,6 +6,8 @@ import { formatDate } from '@/utils/date'
 import Link from 'next/link'
 import NavLink from '@/app/_component/NavLink'
 
+export const dynamic = 'force-dynamic'
+
 async function Details({ params }: { params: { slug: string } }) {
   const { data } = await getFeedback(params.slug) as { data: FeedbackData}
   return (

@@ -4,8 +4,8 @@ import React, { FormEvent, useEffect, useState } from 'react'
 import BaseInput from '../_component/common/BaseInput'
 import { useProductsStore } from '@/zustand/products';
 import { formatCurrency } from '@/utils/currency';
-import { METHODS } from 'http';
 import { useRouter } from 'next/navigation';
+import { toast, ToastContainer } from 'react-toastify';
 
 interface FormValues {
   'Họ tên'?: string,
@@ -23,7 +23,7 @@ function ChekOut() {
     'Thành phố': 'province',
     'Số điện thoại': 'phoneNumber',
     'Thông tin thêm': 'description',
-  })
+  });
 
   const { products, getTotalPrice } = useProductsStore();
   const product = products.map(item => `${item.name} x ${item.quantity} x ${formatCurrency(item.price, 0)} đ`)
@@ -40,7 +40,10 @@ function ChekOut() {
       'Thông tin thêm': formData.get('Thông tin thêm')?.toString() || '',
     };
     setValues(newValues);
-
+    toast.success("Đặt hàng thành công, vui lòng chờ liên hệ từ nhân viên bán hàng!", {
+      position: 'top-right',
+      autoClose: 3000,
+    })
     if ([newValues['Họ tên'], newValues['Địa chỉ'], newValues['Thành phố'], newValues['Số điện thoại']].every(value => value)) {
       await fetch("https://script.google.com/macros/s/AKfycbz_t9YpJqb3cn1MrEVp_vKUE-ChV2ny_kH5REg8A0zd7bDiwegRBoXt92B_NPy4F6I/exec",
         {
@@ -50,6 +53,7 @@ function ChekOut() {
         }
       )
     }
+
   }
 
   useEffect(() => {
@@ -138,6 +142,7 @@ function ChekOut() {
           </div>
         </div>
       </form>
+      <ToastContainer />
     </div>
   )
 }

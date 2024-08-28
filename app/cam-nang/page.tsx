@@ -7,6 +7,7 @@ import Link from 'next/link'
 import NavLink from '../_component/NavLink'
 import ClientOnlyContent from './ClientContent'
 
+export const dynamic = 'force-dynamic'
 async function CamNang({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
   const data: HandbookEntity = await getHandbooks()

@@ -6,6 +6,8 @@ import { FeedbackEntity } from '@/entities/Feedback'
 import Link from 'next/link'
 import NavLink from '../_component/NavLink'
 
+export const dynamic = 'force-dynamic'
+
 async function KhachHang({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
   const dataFeedback: FeedbackEntity = await getFeedbacks({ page: searchParams.page ? +searchParams.page : 1, pageSize: 4 })

@@ -9,6 +9,7 @@ import Contact from './_component/Contact';
 import AppFooter from './_component/AppFooter';
 import { HandleOnComplete } from '@/lib/router-event';
 import 'nprogress/nprogress.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export const dynamic = 'force-dynamic';
 
