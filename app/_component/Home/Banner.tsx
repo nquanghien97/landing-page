@@ -23,12 +23,12 @@ function Banner() {
           disableOnInteraction: false,
         }}
       >
-        {/* <SwiperSlide>
+        <SwiperSlide>
           <Image src={Image1} alt="banner-nho-02-2048x841" width={1024} height={726} className="w-full h-full" unoptimized />
         </SwiperSlide>
         <SwiperSlide>
           <Image src={Image2} alt="banner-nho-02-2048x841" width={1024} height={726} className="w-full h-full" unoptimized />
-        </SwiperSlide> */}
+        </SwiperSlide>
         <SwiperSlide>
           <Image src={Image3} alt="banner-nho-02-2048x841" width={1024} height={726} className="w-full h-full" unoptimized />
         </SwiperSlide>
