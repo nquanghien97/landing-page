@@ -24,16 +24,16 @@ function Banner() {
         }}
       >
         <SwiperSlide>
-          <Image src={Image1} alt="banner-nho-02-2048x841" width={1024} height={726} className="w-full h-full" unoptimized />
+          <Image src={Image1} alt="banner-nho-02-2048x841" width={1920} height={400} className="w-full h-full" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={Image2} alt="banner-nho-02-2048x841" width={1024} height={726} className="w-full h-full" unoptimized />
+          <Image src={Image2} alt="banner-nho-02-2048x841" width={1920} height={400} className="w-full h-full" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={Image3} alt="banner-nho-02-2048x841" width={1024} height={726} className="w-full h-full" unoptimized />
+          <Image src={Image3} alt="banner-nho-02-2048x841" width={1920} height={400} className="w-full h-full" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={Image4} alt="banner-nho-02-2048x841" width={1024} height={726} className="w-full h-full" unoptimized />
+          <Image src={Image4} alt="banner-nho-02-2048x841" width={1920} height={400} className="w-full h-full" />
         </SwiperSlide>
       </Swiper>
     </section>
