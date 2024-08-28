@@ -10,6 +10,7 @@ import AppFooter from './_component/AppFooter';
 import { HandleOnComplete } from '@/lib/router-event';
 import 'nprogress/nprogress.css';
 import "react-toastify/dist/ReactToastify.css";
+import ToastOrder from './_component/ToastOrder';
 
 export const dynamic = 'force-dynamic';
 
@@ -48,6 +49,7 @@ export default function RootLayout({
         <Contact />
         <AppFooter />
         <HandleOnComplete />
+        <ToastOrder />
       </body>
     </html>
   )
