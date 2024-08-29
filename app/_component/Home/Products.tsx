@@ -6,7 +6,6 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { formatCurrency } from '@/utils/currency';
-import { useRouter } from 'next/navigation';
 import NavLink from '../NavLink';
 import Link from 'next/link';
 
@@ -17,8 +16,6 @@ interface ProductProps {
 function Products(props: ProductProps) {
 
   const { data } = props;
-  const router = useRouter();
-  console.log(data)
 
   return (
     <section className="md:py-7">
