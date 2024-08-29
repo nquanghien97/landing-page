@@ -5,7 +5,7 @@ export const ListOrders = [
     id: 1,
     content: (
       <div className="ml-100 text-white">
-        <Link href="/">sản phẩm a</Link>
+        <Link href="/">UNA Plus</Link>
         <p>{`${Math.floor(Math.random() * 1000)} đã để lại thông tin nhờ tư vấn`}</p>
       </div>
     ),
@@ -14,7 +14,7 @@ export const ListOrders = [
     id: 2,
     content: (
       <div className="ml-100 text-white">
-        <Link href="/">sản phẩm a</Link>
+        <Link href="/">Combo Cốm + UNA Mộc Đơn</Link>
         <p>{`${Math.floor(Math.random() * 1000)} đã để lại thông tin nhờ tư vấn`}</p>
       </div>
     ),
@@ -23,7 +23,7 @@ export const ListOrders = [
     id: 3,
     content: (
       <div className="ml-100 text-white">
-        <Link href="/">sản phẩm a</Link>
+        <Link href="/">UNA Mộc Đơn</Link>
         <p>{`${Math.floor(Math.random() * 1000)} đã để lại thông tin nhờ tư vấn`}</p>
       </div>
     ),
@@ -32,7 +32,7 @@ export const ListOrders = [
     id: 4,
     content: (
       <div className="ml-100 text-white">
-        <Link href="/">sản phẩm a</Link>
+        <Link href="/">Cốm Mộc Đơn</Link>
         <p>{`${Math.floor(Math.random() * 1000)} đã để lại thông tin nhờ tư vấn`}</p>
       </div>
     ),

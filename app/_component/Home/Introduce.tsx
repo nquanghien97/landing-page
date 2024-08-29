@@ -12,7 +12,7 @@ function Introduce() {
           <h2 className="text-4xl font-bold">UNA Mộc Đơn</h2>
         </div>
         <div className="text-center text-xl">
-          <p>Với sứ mệnh chăm sóc sức khỏe và nâng cao chất lượng cuộc sống, Mộc Đơn đã, đang và sẽ luôn là người bạn đồng hành đáng tin cậy, giúp chị em phụ nữ vượt qua nỗi lo về U XƠ, U NANG, U LÀNH TÍNH và sống trọn vẹn hơn mỗi ngày. Hàng triệu chị em phụ nữ đã trải nghiệm và hài lòng.</p>
+          <p>MỘC ĐƠN - Bí quyết từ thiên nhiên dành riêng cho phụ nữ! Được tạo nên từ những thảo dược tinh túy nhất, MỘC ĐƠN giúp bạn nhẹ nhàng đánh bay nỗi lo U XƠ, U NANG hay U LÀNH TÍNH, mang lại sự cân bằng và khỏe mạnh từ bên trong. MỘC ĐƠN cam kết đồng hành cùng phụ nữ trên con đường chăm sóc sức khỏe, để mỗi ngày đều là một ngày tự tin, rạng ngời và tràn đầy sức sống.</p>
         </div>
       </div>
     </section>

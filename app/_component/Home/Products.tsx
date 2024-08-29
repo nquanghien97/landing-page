@@ -70,8 +70,14 @@ function Products(props: ProductProps) {
                   </div>
                   <div className='py-2'>
                     <p className='text-base font-bold text-[#f18017] uppercase'>{product.name}</p>
-                    <p className="text-lg font-bold">Giá gốc: <span className="line-through">{formatCurrency(product.price, 0)} đ</span></p>
-                    <p className="text-lg font-bold">Ưu đãi hôm nay: <span className="text-[#f18017]">{formatCurrency(product.discountPrice, 0)} đ</span></p>
+                    {product.discountPrice ? (
+                      <>
+                        <p className="text-lg font-bold">Giá gốc: <span className="line-through">{formatCurrency(product.price, 0)} đ</span></p>
+                        <p className="text-lg font-bold">Ưu đãi hôm nay: <span className="text-[#f18017]">{formatCurrency(product.discountPrice, 0)} đ</span></p>
+                      </>
+                    ) : (
+                      <p className="text-lg font-bold"><span className="text-[#f18017]">{formatCurrency(product.price, 0)} đ</span></p>
+                    )}
                   </div>
                 </Link>
               </SwiperSlide>

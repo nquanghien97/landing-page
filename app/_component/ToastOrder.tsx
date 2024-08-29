@@ -12,12 +12,13 @@ function ToastOrder() {
       type: 'info',
       autoClose: 3000,
       position: 'bottom-left',
-      icon: false
+      icon: false,
+      pauseOnFocusLoss: false
     });
   }, []);
 
   useEffect(() => {
-    const intervalId = setInterval(onShowToast, 10000);
+    const intervalId = setInterval(onShowToast, 6000);
     return () => {
       clearInterval(intervalId);
     };
@@ -25,7 +26,7 @@ function ToastOrder() {
 
   return (
     <div>
-      <ToastContainer className="w-[400px]" toastClassName="bg-[url('/bg-toast.png')] bg-cover" />
+      <ToastContainer className="w-[400px]" toastClassName="bg-[url('/bg-toast.png')] bg-cover h-[100px]" />
     </div>
   );
 }

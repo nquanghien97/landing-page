@@ -21,7 +21,8 @@ async function CamNang({ searchParams }: { searchParams: { [key: string]: string
                 <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={1000} height={1000} className="md:w-[300px] w-full" />
                 <div className="absolute top-0 px-2 bg-[white] border-[#f18017] border-2 flex flex-col">
                   <span className="text-xs font-bold text-[#f18017]">{new Date(handbook.createdAt).getDate()}</span>
-                  <span className="text-xs font-bold text-[#f18017]">th{new Date(handbook.createdAt).getMonth()}</span>
+                  {/* <span className="text-xs font-bold text-[#f18017]">th{new Date(handbook.createdAt).getMonth()}</span> */}
+                  <span className="text-xs font-bold text-[#f18017]">th{new Date(handbook.createdAt).getMonth() + 1}</span>
                 </div>
               </div>
               <div className="flex flex-col justify-center md:px-4 py-4">

@@ -33,7 +33,7 @@ model Product {
   name          String
   images        ProductImage[]
   price         Int
-  discountPrice Int
+  discountPrice Int?
   description   String         @db.LongText
   details       String         @db.LongText
   tags          Tags[]
