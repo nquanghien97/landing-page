@@ -18,6 +18,7 @@ function Products(props: ProductProps) {
 
   const { data } = props;
   const router = useRouter();
+  console.log(data)
 
   return (
     <section className="md:py-7">
@@ -76,7 +77,7 @@ function Products(props: ProductProps) {
                         <p className="text-lg font-bold">Ưu đãi hôm nay: <span className="text-[#f18017]">{formatCurrency(product.discountPrice, 0)} đ</span></p>
                       </>
                     ) : (
-                      <p className="text-lg font-bold"><span className="text-[#f18017]">{formatCurrency(product.price, 0)} đ</span></p>
+                      <p className="text-lg font-bold"><span>{formatCurrency(product.price, 0)} đ</span></p>
                     )}
                   </div>
                 </Link>
