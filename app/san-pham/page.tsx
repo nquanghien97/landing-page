@@ -31,7 +31,14 @@ async function Service({ searchParams }: { searchParams: { [key: string]: string
               </Link>
               <div className="py-2 text-center">
                 <Link href={`/san-pham/${product.slug}`} className="text-sm text-[#f18017] font-bold">{product.name}</Link>
-                <p className="">{formatCurrency(product.price, 0)} đ</p>
+                {product.discountPrice ? (
+                  <>
+                    <p className="font-bold">Giá gốc: <span className="line-through">{formatCurrency(product.price, 0)} đ</span></p>
+                    <p className="font-bold">Ưu đãi hôm nay: <span className="text-[#f18017]">{formatCurrency(product.discountPrice, 0)} đ</span></p>
+                  </>
+                ) : (
+                  <p className="font-bold"><span>{formatCurrency(product.price, 0)} đ</span></p>
+                )}
               </div>
             </div>
           ))}

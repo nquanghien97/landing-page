@@ -34,7 +34,7 @@ function AppFooter() {
             <ul className="list-disc">
               <li>Tầng 4 tòa nhà HUD3 Tower số 121-123 Tô Hiệu, Nguyễn Trãi, Quận Hà Đông, Hà Nội, Việt Nam.</li>
               <li>Địa chỉ nhà máy: Nhà Máy BigFa, KM36 - QL6, Khu Công Nghiệp Lương Sơn, Xã Hòa Sơn, Huyện Lương Sơn, Hòa Bình, Việt Nam.</li>
-              <li>Hotline: 052.864.3333</li>
+              <li>Hotline: 052.854.3333</li>
               <li>Email: mocdon.una@gmail.com</li>
             </ul>
           </div>
