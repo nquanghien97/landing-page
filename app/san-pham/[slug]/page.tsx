@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic'
 async function ProductDetails({ params }: { params: { slug: string } }) {
 
   const { data } = await getProduct(params.slug) as { data: DataProducts }
-  const { data: dataHanbooks } = await getHandbooks() as { data : HandbookData[] }
+  const { data: dataHanbooks } = await getHandbooks({ page: 1, pageSize: 3}) as { data : HandbookData[] }
   if(!data) return <div className='text-center py-4'>Không có sản phẩm phù hợp</div>
   return (
     <div className="max-w-6xl m-auto mb-4">
@@ -28,7 +28,7 @@ async function ProductDetails({ params }: { params: { slug: string } }) {
             <div className="mb-2">
               <span className="text-2xl font-extrabold">{formatCurrency(data.price, 0)} đ</span>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: data.description }} className="my-4 font-bold description content" />
+            <div dangerouslySetInnerHTML={{ __html: data.description }} className="my-4 description content" />
             <AddCart product={data} />
           </div>
           <div className="w-full max-w-[16.666667%] hidden md:block">
@@ -39,7 +39,7 @@ async function ProductDetails({ params }: { params: { slug: string } }) {
               {dataHanbooks.map(handbook => (
                 <li key={handbook.id} className="flex gap-2 cursor-pointer py-1 border-b-[1px] border-[#ccc]">
                   <div className="py-2">
-                    <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={100} height={100} className="w-[40px]" />
+                    <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${handbook.imageUrl}`} alt={handbook.title} width={100} height={100} className="w-[40px]" />
                   </div>
                   <div className="w-full">
                     <p className="text-sm font-bold text-[#f18017]">{handbook.title}</p>
@@ -52,9 +52,9 @@ async function ProductDetails({ params }: { params: { slug: string } }) {
       </div>
       <div className="max-md:px-4">
         <div className="py-2">
-          <p className="uppercase font-bold">Mô tả</p>
+          <p className="uppercase font-bold text-2xl">Mô tả</p>
         </div>
-        <div className="py-2 font-bold content" dangerouslySetInnerHTML={{ __html: data.details }} />
+        <div className="py-2 content" dangerouslySetInnerHTML={{ __html: data.details }} />
       </div>
     </div>
   )

@@ -20,7 +20,7 @@ function Handbook(props: HandbookProps) {
   const { data } = props;
 
   return (
-    <section className="md:py-7">
+    <section className="md:py-7 max-md:px-4">
       <div className="max-w-6xl m-auto flex flex-col">
         <div className="text-center w-full mb-4">
           <h2 className="text-4xl uppercase text-[#f18017]">Thông tin mới nhất</h2>
@@ -66,7 +66,7 @@ function Handbook(props: HandbookProps) {
               >
                 <Link href={`/cam-nang/${handbook.slug}`}>
                   <div className="overflow-hidden">
-                    <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={1024} height={716} className='w-full group-hover:scale-110 duration-500' />
+                    <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${handbook.imageUrl}`} alt={handbook.title} width={1024} height={716} className='w-full group-hover:scale-110 duration-500' />
                   </div>
                   <div className='py-2'>
                     <p className='text-base font-bold text-[#f18017]'>{handbook.title}</p>

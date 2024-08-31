@@ -27,7 +27,7 @@ async function Service({ searchParams }: { searchParams: { [key: string]: string
           {data.map(product => (
             <div className="flex flex-col items-center md:max-w-[25%] md:basis-1/4 px-2 pb-4 w-full" key={product.id}>
               <Link href={`/san-pham/${product.slug}`} className="overflow-hidden cursor-pointer w-full">
-                <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={1080} height={1080} className="w-full hover:scale-110 duration-500" />
+                <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${product.images[0].imageUrl}`} alt={product.name} width={1080} height={1080} className="w-full hover:scale-110 duration-500" />
               </Link>
               <div className="py-2 text-center">
                 <Link href={`/san-pham/${product.slug}`} className="text-sm text-[#f18017] font-bold">{product.name}</Link>

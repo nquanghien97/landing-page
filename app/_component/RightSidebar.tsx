@@ -10,7 +10,7 @@ import Link from "next/link"
 
 async function RightSidebar() {
   const dataProducts: ProductEntity = await getProducts({ page: 1, pageSize: 3 })
-  const dataHandbooks: HandbookEntity = await getHandbooks()
+  const dataHandbooks: HandbookEntity = await getHandbooks({ page: 1, pageSize: 3 })
   return (
     <div className="flex flex-col gap-4 w-full md:max-w-[25%] md:basis-1/4 my-4 md:m-0">
       <div className="px-4 w-full md:mb-4">
@@ -32,7 +32,7 @@ async function RightSidebar() {
               <Link key={handbook.id} href={`/cam-nang/${handbook.slug}`}>
                 <li className="flex gap-2 cursor-pointer py-1 border-b-[1px] border-[#ccc]">
                   <div className="py-2">
-                    <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={100} height={100} className="w-[80px]" />
+                    <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${handbook.imageUrl}`} alt={handbook.title} width={100} height={100} className="w-[80px]" />
                   </div>
                   <div className="w-full flex items-center">
                     <p className="text-sm font-bold text-[#f18017]">{handbook.title}</p>
@@ -54,11 +54,18 @@ async function RightSidebar() {
               <Link key={product.id} href={`/san-pham/${product.slug}`}>
                 <li className="flex gap-2 cursor-pointer py-1 border-b-[1px] border-[#ccc]">
                   <div className="py-2">
-                    <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={100} height={100} className="w-[80px]" />
+                    <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${product.images[0].imageUrl}`} alt={product.name} width={100} height={100} className="w-[80px]" />
                   </div>
                   <div className="w-full flex justify-center flex-col">
                     <p className="text-sm font-bold text-[#f18017]">{product.name}</p>
-                    <p className="text-sm font-bold">{formatCurrency(product.price, 0)} đ</p>
+                    {product.discountPrice ? (
+                  <>
+                    <p className="font-bold text-sm"><span className="line-through">{formatCurrency(product.price, 0)} đ</span></p>
+                    <p className="font-bold text-sm"><span className="text-[#f18017]">{formatCurrency(product.discountPrice, 0)} đ</span></p>
+                  </>
+                ) : (
+                  <p className="font-bold text-sm"><span>{formatCurrency(product.price, 0)} đ</span></p>
+                )}
                   </div>
                 </li>
               </Link>

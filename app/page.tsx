@@ -15,7 +15,7 @@ import Introduce from "./_component/Home/Introduce";
 export default async function Home() {
   const resProduct = await getProducts({ page: 1, pageSize: 10 })
   const resFeedback = await getFeedbacks({ page: 1, pageSize: 10 })
-  const resHandbook = await getHandbooks()
+  const resHandbook = await getHandbooks({ page: 1, pageSize: 20 })
 
   return (
     <>
@@ -31,7 +31,7 @@ export default async function Home() {
           <div className="flex-1 bg-[#f18017] flex items-center justify-center flex-col">
             <div className="w-5/6 text-white">
               <h2 className="text-4xl py-4">UNA Mộc Đơn – CÂU CHUYỆN THÀNH CÔNG</h2>
-              <p className="font-bold">Theo thống kê trên tổng dân số nữ của thế giới, có khoảng 70 – 80% dân số nữ sẽ mắc phải một những căn bệnh U XƠ, U NANG hay U LÀNH TÍNH. Do đó, với mong muốn chăm sóc sức khỏe và nâng cao chất lượng cuộc sống của phụ nữ trên toàn thế giới, chúng tôi đã tạo ra bộ sản phẩm MỘC ĐƠN với cơ chế độc quyền: TRIỆT CHÂN U. Cơ chế này tác động trực tiếp vào chân U, đánh bật gốc rễ khối u và hoàn toàn không lo khối u mọc lại. Đây là điểm khác biệt của MỘC ĐƠN với các sản phẩm thông thường khác trên thị trường.</p>
+              <p className="font-bold text-justify">Theo thống kê trên tổng dân số nữ của thế giới, có khoảng 70 – 80% dân số nữ sẽ mắc phải một những căn bệnh U XƠ, U NANG hay U LÀNH TÍNH. Do đó, với mong muốn chăm sóc sức khỏe và nâng cao chất lượng cuộc sống của phụ nữ trên toàn thế giới, chúng tôi đã tạo ra bộ sản phẩm MỘC ĐƠN với cơ chế độc quyền: TRIỆT CHÂN U. Cơ chế này tác động trực tiếp vào chân U, đánh bật gốc rễ khối u và hoàn toàn không lo khối u mọc lại. Đây là điểm khác biệt của MỘC ĐƠN với các sản phẩm thông thường khác trên thị trường.</p>
               {/* <div className="my-4 flex justify-center">
                 <span className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 bg-white text-black font-bold rounded-md">Xem thêm</span>
               </div> */}
@@ -40,9 +40,9 @@ export default async function Home() {
         </div>
         <div className="flex flex-col md:flex-row">
           <div className="flex-1 bg-[#f18017] flex items-center justify-center flex-col">
-            <div className="w-5/6 text-white">
+            <div className="w-5/6 text-white max-md:mb-4">
               <h2 className="text-4xl py-4">CỘNG ĐỒNG UNA Mộc Đơn</h2>
-              <p className="font-bold">Không chỉ phủ mạnh thị trường trong nước, MỘC ĐƠN đã, đang và sẽ tiếp tục vươn mình mạnh mẽ ra thị trường quốc tế, nhận được nhiều sự yêu mến và tin dùng của phụ nữ trên nhiều quốc gia ở Châu Âu, Châu Á. MỘC ĐƠN đang từng bước gây dựng nên một cộng đồng chăm sóc sức khỏe phụ nữ văn minh, an toàn và hiệu quả.</p>
+              <p className="font-bold text-justify">Không chỉ phủ mạnh thị trường trong nước, MỘC ĐƠN đã, đang và sẽ tiếp tục vươn mình mạnh mẽ ra thị trường quốc tế, nhận được nhiều sự yêu mến và tin dùng của phụ nữ trên nhiều quốc gia ở Châu Âu, Châu Á. MỘC ĐƠN đang từng bước gây dựng nên một cộng đồng chăm sóc sức khỏe phụ nữ văn minh, an toàn và hiệu quả.</p>
               {/* <div className="my-4 flex justify-center">
                 <span className="cursor-pointer duration-300 uppercase hover:opacity-80 px-4 py-2 bg-white text-black font-bold rounded-md">Xem thêm</span>
               </div> */}

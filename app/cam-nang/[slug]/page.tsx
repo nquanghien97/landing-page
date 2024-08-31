@@ -23,7 +23,7 @@ async function Details({ params }: { params: { slug: string } }) {
             <span className="font-bold">Được thêm vào {formatDate(data.createdAt)} bởi ADMIN</span>
           </div>
           <div>
-            <Image src={`/api${data.imageUrl}`} alt={data.title} width={1000} height={1000} className="w-full" />
+            <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${data.imageUrl}`} alt={data.title} width={1000} height={1000} className="w-full" />
           </div>
           <div dangerouslySetInnerHTML={{ __html: data.content}} className="content" />
         </div>

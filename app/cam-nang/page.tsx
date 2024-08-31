@@ -10,7 +10,7 @@ import ClientOnlyContent from './ClientContent'
 export const dynamic = 'force-dynamic'
 async function CamNang({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
-  const data: HandbookEntity = await getHandbooks()
+  const data: HandbookEntity = await getHandbooks({ page: 1, pageSize: 20 })
   return (
     <div className="max-w-6xl m-auto mb-4">
       <div className="py-10 flex flex-col md:flex-row">
@@ -18,7 +18,7 @@ async function CamNang({ searchParams }: { searchParams: { [key: string]: string
           {data.data.map(handbook => (
             <Link href={`/cam-nang/${handbook.slug}`} key={handbook.id} className="flex group cursor-pointer flex-col md:flex-row">
               <div className="md:w-2/5 w-full relative">
-                <Image src={`/api${handbook.imageUrl}`} alt={handbook.title} width={1000} height={1000} className="md:w-[300px] w-full" />
+                <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${handbook.imageUrl}`} alt={handbook.title} width={1000} height={1000} className="md:w-[300px] w-full" />
                 <div className="absolute top-0 px-2 bg-[white] border-[#f18017] border-2 flex flex-col">
                   <span className="text-xs font-bold text-[#f18017]">{new Date(handbook.createdAt).getDate()}</span>
                   {/* <span className="text-xs font-bold text-[#f18017]">th{new Date(handbook.createdAt).getMonth()}</span> */}

@@ -54,7 +54,7 @@ function CartPage() {
                     products.map(product => (
                       <tr key={product.id} className="flex">
                         <td className="max-w-[70%] lg:max-w-[40%] basis-[70%] lg:basis-2/5 mx-2 font-bold flex">
-                          <Image src={`/api${product.images[0].imageUrl}`} alt={product.name} width={100} height={100} />
+                          <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${product.images[0].imageUrl}`} alt={product.name} width={100} height={100} />
                           <div className="ml-2 flex flex-col">
                             <span className="flex-1">{product.name}</span>
                             <span className="lg:hidden">{product.quantity} x {formatCurrency(product.price, 0)} đ</span>

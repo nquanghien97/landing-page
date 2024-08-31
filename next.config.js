@@ -4,16 +4,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'mamvietnam.vn',
+        hostname: 'unamocdon.vn',
       },
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'swiperjs.com'
-      }
     ],
   },
   async headers() {
