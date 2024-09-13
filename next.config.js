@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'unamocdon.vn',
       },
+{
+        protocol: 'http',
+        hostname: 'localhost',
+      },
     ],
   },
   async headers() {
